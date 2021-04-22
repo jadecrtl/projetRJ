@@ -14,7 +14,7 @@ Pour P3 : Veut pouvoir poster des publications. Veut pouvoir commenter sous des 
 Item01 : création de la base de données. Fichier ProjetRJ.sql FAIT
 
 Item02 : création des données de test.
-	creation_test_utilisateur.sql
+	creation_test_utilisateur.sql							FAIT
 	creation_test_publication_public.sql
 	creation_test_publication_privee.sql
 	creation_test_commentaire_sur_publication_publique.sql
