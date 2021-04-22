@@ -1,0 +1,57 @@
+Créations de personas:
+P0 : créateur du site
+P1 : administrateur
+P2 : influenceur (le compte public)
+P3beta : le visiteur qui a pas de compte
+P3 : le visiteur qui a créé un compte et qui est connecté (le compte privé)
+Création de stories pour les personas:
+Pour P0 :  Veut pouvoir élever le pouvoir d’un utilisateur vers admin
+Pour P1 : Veut pouvoir voir toutes les publications. Veut pouvoir censurer un post. Dans la censure est compris la non-visibilité des commentaires pour tous et la suppression de la publication. 
+Pour P2 : Veut pouvoir publier et que tout le monde puisse voir ses publications (P3 et P3beta). Veut pouvoir commenter sa publication et celle des autres. Veut pouvoir supprimer ses publications et/ou ses commentaires. Veut pouvoir supprimer son compte. Veut pouvoir s’abonner à d’autres utilisateurs (P2 et P3). 
+Pour P3beta : Veut pouvoir voir des publications de personnes (P2). Veut pouvoir s’inscrire et se connecter. 
+Pour P3 : Veut pouvoir poster des publications. Veut pouvoir commenter sous des publications. Veut pouvoir s’abonner à d'autres utilisateurs. Veut pouvoir filtrer les demandes d’amis (accepter ou refuser).
+
+Item01 : création de la base de données. Fichier ProjetRJ.sql FAIT
+
+Item02 : création des données de test.
+	creation_test_utilisateur.sql
+	creation_test_publication_public.sql
+	creation_test_publication_privee.sql
+	creation_test_commentaire_sur_publication_publique.sql
+	creation_test_commentaire_sur_publication_privee.sql
+
+Item03 : création des procédures stockées pour consulter les publications.
+	ps_voir_publications.sql
+	ps_voir_publications_admin.sql
+	ps_voir_publications_prive.sql
+	ps_voir_publications_public.sql
+	ps_voir_publications_visiteur.sql
+
+Item04 : récupérer les commentaires des publications.
+	ps_voir_commentaires.sql
+	//le visiteur n'a pas acces aux commentaires
+
+Item05 : chercher des gens pour faire des nouvelles relations
+	
+Item06 : s'abonner à un influenceur
+
+Item07 : faire une demande d'ami
+
+Item08 : accepter une demande d'ami
+
+Item09 : refuser une demande d'ami
+
+Item10 : voir mon compte sur ProjetRJ
+
+Item11 : supprimer mon compte
+
+Item12 : s'inscrire sur le réseau social
+
+Item13 : se connecter au réseau social
+
+Item14 : se déconnecter au réseau social
+
+
+
+
+
