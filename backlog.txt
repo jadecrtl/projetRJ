@@ -7,18 +7,16 @@ P3 : le visiteur qui a créé un compte et qui est connecté (le compte privé)
 Création de stories pour les personas:
 Pour P0 :  Veut pouvoir élever le pouvoir d’un utilisateur vers admin
 Pour P1 : Veut pouvoir voir toutes les publications. Veut pouvoir censurer un post. Dans la censure est compris la non-visibilité des commentaires pour tous et la suppression de la publication. 
-Pour P2 : Veut pouvoir publier et que tout le monde puisse voir ses publications (P3 et P3beta). Veut pouvoir commenter sa publication et celle des autres. Veut pouvoir supprimer ses publications et/ou ses commentaires. Veut pouvoir supprimer son compte. Veut pouvoir s’abonner à d’autres utilisateurs (P2 et P3). 
+Pour P2 : Veut pouvoir publier et que tout le monde puisse voir ses publications (P3 et P3beta). Veut pouvoir commenter sa publication et celle des autres auquel il est abonné. Veut pouvoir supprimer ses publications et/ou ses commentaires. Veut pouvoir supprimer son compte. Veut pouvoir s’abonner à d’autres utilisateurs (P2 et P3). 
 Pour P3beta : Veut pouvoir voir des publications de personnes (P2). Veut pouvoir s’inscrire et se connecter. 
-Pour P3 : Veut pouvoir poster des publications. Veut pouvoir commenter sous des publications. Veut pouvoir s’abonner à d'autres utilisateurs. Veut pouvoir filtrer les demandes d’amis (accepter ou refuser).
+Pour P3 : Veut pouvoir poster des publications. Veut pouvoir commenter sous des publications auquel il est abonné. Veut pouvoir s’abonner à d'autres utilisateurs. Veut pouvoir filtrer les demandes d’amis (accepter ou refuser).
 
 Item01 : création de la base de données. Fichier ProjetRJ.sql FAIT
 
 Item02 : création des données de test.
-	creation_test_utilisateur.sql							FAIT
-	creation_test_publication_public.sql
-	creation_test_publication_privee.sql
-	creation_test_commentaire_sur_publication_publique.sql
-	creation_test_commentaire_sur_publication_privee.sql
+	creation_test_utilisateur.sql								FAIT
+	creation_test_publication.sql								FAIT	ps_creer_publication	FAIT
+	creation_test_commentaire_sur_publication.sql
 
 Item03 : création des procédures stockées pour consulter les publications.
 	ps_voir_publications.sql
