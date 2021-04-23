@@ -9,7 +9,9 @@ BEGIN
     DECLARE l_id_utilisateur INT;
     DECLARE l_date_creation TIMESTAMP;
     
-    SELECT @l_id_utilisateur := id_utilisateur FROM t_utilisateur WHERE pseudonyme = p_pseudonyme;
+    SELECT @l_id_utilisateur := id_utilisateur
+    FROM t_utilisateur
+    WHERE pseudonyme = p_pseudonyme;
 
     SELECT @l_date_creation := NOW();
 

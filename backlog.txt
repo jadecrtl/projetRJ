@@ -17,7 +17,7 @@ Item02 : création des données de test.
 	creation_test_utilisateur.sql								FAIT
 	creation_test_publication.sql								FAIT	ps_creer_publication	FAIT
 	creation_test_relation.sql									FAIT	ps_creer_abonnement		FAIT
-	creation_test_commentaire_sur_publication.sql
+	creation_test_commentaire_sur_publication.sql				A FAIRE
 
 Item03 : création des procédures stockées pour consulter les publications.
 	ps_voir_publications.sql
@@ -59,7 +59,8 @@ Item13 : se connecter au réseau social
 
 Item14 : se déconnecter au réseau social
 
-
+Item15 : commenter une publication
+	ps_creer_commentaire.sql								FAIT
 
 
 
