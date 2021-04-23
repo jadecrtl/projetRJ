@@ -1,15 +1,22 @@
 Créations de personas:
 P0 : créateur du site
 P1 : administrateur
-P2 : influenceur (le compte public)
-P3beta : le visiteur qui a pas de compte
+P2: le visiteur qui a pas de compte
 P3 : le visiteur qui a créé un compte et qui est connecté (le compte privé)
+P4 : influenceur (le compte public)
+
+
 Création de stories pour les personas:
+
 Pour P0 :  Veut pouvoir élever le pouvoir d’un utilisateur vers admin
+
 Pour P1 : Veut pouvoir voir toutes les publications. Veut pouvoir censurer un post. Dans la censure est compris la non-visibilité des commentaires pour tous et la suppression de la publication. 
-Pour P2 : Veut pouvoir publier et que tout le monde puisse voir ses publications (P3 et P3beta). Veut pouvoir commenter sa publication et celle des autres auquel il est abonné. Veut pouvoir supprimer ses publications et/ou ses commentaires. Veut pouvoir supprimer son compte. Veut pouvoir s’abonner à d’autres utilisateurs (P2 et P3). 
-Pour P3beta : Veut pouvoir voir des publications de personnes (P2). Veut pouvoir s’inscrire et se connecter. 
-Pour P3 : Veut pouvoir poster des publications. Veut pouvoir commenter sous des publications auquel il est abonné. Veut pouvoir s’abonner à d'autres utilisateurs. Veut pouvoir filtrer les demandes d’amis (accepter ou refuser).
+
+Pour P2 : Veut pouvoir voir des publications de personnes (P4) mais ne peut pas les commenter. Veut pouvoir s’inscrire et se connecter. 
+
+Pour P3 : Veut pouvoir poster des publications. Veut pouvoir commenter sa publication et celle des autres auquel il est abonné. Veut pouvoir s’abonner à d'autres utilisateurs. Veut pouvoir filtrer les demandes d’amis (accepter ou refuser). Veut pouvoir voir toute les publications de P4 mais ne peut les commenter que s'il est abonné. Veut pouvoir supprimer ses publications et/ou ses commentaires. Veut pouvoir supprimer son compte.
+
+Pour P4 : Veut pouvoir publier et que tout le monde puisse voir ses publications (P2 et P3 et P4). Veut pouvoir commenter sa publication et celle des autres auquel il est abonné. Veut pouvoir supprimer ses publications et/ou ses commentaires. Veut pouvoir supprimer son compte. Veut pouvoir s’abonner à d’autres utilisateurs (P3 et P4). 
 
 Item01 : création de la base de données. Fichier ProjetRJ.sql FAIT
 
@@ -20,14 +27,14 @@ Item02 : création des données de test.
 	creation_test_commentaire_sur_publication.sql				A FAIRE
 
 Item03 : création des procédures stockées pour consulter les publications.
-	ps_voir_publications.sql
+	ps_voir_publications.sql									FAIT
 	ps_voir_publications_admin.sql
 	ps_voir_publications_prive.sql
 	ps_voir_publications_public.sql
 	ps_voir_publications_visiteur.sql
 
 Item04 : récupérer les commentaires des publications.
-	ps_voir_commentaires.sql
+	ps_voir_commentaires.sql									FAIT
 	//le visiteur n'a pas acces aux commentaires
 
 Item05 : chercher des gens pour faire des nouvelles relations
@@ -46,7 +53,7 @@ Item09 : refuser une demande d'ami
 	ps_supprimer_demande_ami.sql
 
 Item10 : voir mon compte sur ProjetRJ
-	ps_voir_mon_profil.sql
+	ps_voir_mon_profil.sql										FAIT
 
 Item11 : supprimer mon compte
 	ps_supprimer_mon_profil.sql
@@ -61,6 +68,4 @@ Item14 : se déconnecter au réseau social
 
 Item15 : commenter une publication
 	ps_creer_commentaire.sql								FAIT
-
-
 
