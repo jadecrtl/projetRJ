@@ -52,7 +52,7 @@ Item08 : accepter une demande d'ami
 Item09 : refuser une demande d'ami
 	ps_supprimer_demande_ami.sql
 
-Item10 : voir mon compte sur ProjetRJ
+Item10 : voir mon compte sur ProjetRJ (mes publications)
 	ps_voir_mon_profil.sql										FAIT
 
 Item11 : supprimer mon compte
@@ -69,3 +69,5 @@ Item14 : se déconnecter au réseau social
 Item15 : commenter une publication
 	ps_creer_commentaire.sql								FAIT
 
+Item16 : voir ma fiche personelle
+	ps_voir_fiche_adresse_mail.sql									FAIT

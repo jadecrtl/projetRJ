@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connexion</title>
     <!--
@@ -14,6 +13,16 @@
     
 </head>
 <body>
+    <form action="connexion_verification.php" method="post">
+        Adresse mail<input type="text" name="saisie_adresse_mail" value=""></br>
+        Mot de passe<input type="password" name="saisie_mot_de_passe" value=""></br>
+        <input type="submit" name="connexion" value="Connexion"></br>
+    </form>
+    </br> 
+    Si vous n'avez pas de compte <a href="inscription.php">Inscription</a>
+    </br>
+    Sinon naviguez en tant que <a href="accueil.php">visiteur</a>
+
     
 </body>
 </html>
