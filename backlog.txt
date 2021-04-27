@@ -38,9 +38,6 @@ Item03 : création des procédures stockées pour consulter les publications.
 	ps_voir_publications_public.sql								FAIT
 	ps_voir_publications_visiteur.sql							FAIT
 
-Je fais un test push et pull
-
-
 Item04 : récupérer les commentaires des publications.
 	ps_voir_commentaires.sql									FAIT
 	//le visiteur n'a pas acces aux commentaires
