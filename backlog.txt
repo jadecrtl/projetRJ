@@ -44,7 +44,6 @@ Item04 : récupérer les commentaires des publications.
 
 Item05 : chercher des gens pour faire des nouvelles relations
 	ps_voir_nouveaux_amis.sql									A FAIRE
-A voir si nécessaire, demander à mon père
 
 Item06 : s'abonner à un influenceur : un influenceur accepte tout le monde et ne peut refuser personnes
 	ps_creer_abonnement.sql										FAIT
@@ -77,7 +76,7 @@ Item14 : se déconnecter au réseau social
 	deconnexion.php												FAIT					
 
 Item15 : commenter une publication
-	ps_creer_commentaire.sql								FAIT
+	ps_creer_commentaire.sql									FAIT
 
 Item16 : voir ma fiche personelle
 	ps_voir_fiche_adresse_mail.sql									FAIT
