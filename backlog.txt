@@ -26,16 +26,12 @@ Item02 : création des données de test.
 	creation_test_relation.sql									FAIT	ps_creer_abonnement		FAIT
 	creation_test_commentaire_sur_publication.sql				A FAIRE
 
-	test_utilisateur.php										FAIT
-	test_admin.php												A FAIRE
-	test_visiteur.php											A FAIRE
-	
 Item03 : création des procédures stockées pour consulter les publications.
 	ps_voir_publications.sql									FAIT
-	ps_voir_publications_admin.sql
-	ps_voir_publications_prive.sql
+	ps_voir_publications_admin.sql		FAIT
+	ps_voir_publications_prive.sql		FAIT
 	ps_voir_publications_public.sql
-	ps_voir_publications_visiteur.sql
+	ps_voir_publications_visiteur.sql	FAIT
 
 Item04 : récupérer les commentaires des publications.
 	ps_voir_commentaires.sql									FAIT
@@ -70,7 +66,7 @@ Item13 : se connecter au réseau social
 	connexion.php (formulaire de connexion)						FAIT
 	connexion_verification.php (validation avec mot de passe crypté) FAIT
 	bdd.php (informations de connexion à la base)				FAIT
-
+	
 Item14 : se déconnecter au réseau social
 
 Item15 : commenter une publication

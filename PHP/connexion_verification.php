@@ -32,13 +32,13 @@
                 }
                 else {
                     echo "Le mot de passe est invalide. Veuillez réessayer à nouveau.";
-                    echo "Retourner à la page de <a href=\"connexion.php\">connexion</a>";
+                    echo " Retourner à la page de <a href=\"connexion.php\">connexion</a> ";
                     exit();    
                 }
             }
             else {
                 echo "La fiche ne semble pas être unique.</br>";
-                echo "Retourner à la page de <a href=\"connexion.php\">connexion</a>";
+                echo " Retourner à la page de <a href=\"connexion.php\">connexion</a>";
                 exit();
             }
 
