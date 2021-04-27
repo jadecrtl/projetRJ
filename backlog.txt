@@ -50,10 +50,10 @@ Item06 : s'abonner à un influenceur : un influenceur accepte tout le monde et n
 	ps_creer_abonnement.sql										FAIT
 
 Item07 : faire une demande d'ami
-	ps_creer_demande_ami.sql									A FAIRE
+	ps_creer_demande_ami.sql									FAIT
 
 Item08 : accepter une demande d'ami
-	ps_creer_acceptation_ami.sql								A FAIRE
+	ps_creer_acceptation_ami.sql								FAIT
 
 Item09 : refuser une demande d'ami
 	ps_supprimer_demande_ami.sql								A FAIRE

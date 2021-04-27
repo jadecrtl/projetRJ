@@ -24,7 +24,7 @@ BEGIN
     WHERE id_utilisateur_demandeur = l_id_demandeur
     AND id_utilisateur_repondant = l_id_repondant;
 
-    IF (@l_id_repondant IS NOT NULL AND @l_id_demandeur IS NOT NULL AND @l_relation_existante = 0 AND @l_id_demandeur <> @l_id_repondant) THEN    
+    IF (@l_id_repondant IS NOT NULL AND @l_id_demandeur IS NOT NULL AND @l_relation_existante = 1 AND @l_id_demandeur <> @l_id_repondant) THEN    
         INSERT INTO t_utilisateur_relation (id_utilisateur_demandeur, id_utilisateur_repondant, relation)
         VALUES (@l_id_demandeur, @l_id_repondant, 'ami');
     END IF;
