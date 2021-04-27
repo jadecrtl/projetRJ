@@ -43,28 +43,28 @@ Item04 : récupérer les commentaires des publications.
 	//le visiteur n'a pas acces aux commentaires
 
 Item05 : chercher des gens pour faire des nouvelles relations
-	ps_voir_nouveaux_amis.sql
+	ps_voir_nouveaux_amis.sql									A FAIRE
 
 Item06 : s'abonner à un influenceur : un influenceur accepte tout le monde et ne peut refuser personnes
 	ps_creer_abonnement.sql										FAIT
 
 Item07 : faire une demande d'ami
-	ps_creer_demande_ami.sql
+	ps_creer_demande_ami.sql									A FAIRE
 
 Item08 : accepter une demande d'ami
-	ps_creer_acceptation_ami.sql
+	ps_creer_acceptation_ami.sql								A FAIRE
 
 Item09 : refuser une demande d'ami
-	ps_supprimer_demande_ami.sql
+	ps_supprimer_demande_ami.sql								A FAIRE
 
 Item10 : voir mon compte sur ProjetRJ (mes publications)
 	ps_voir_mon_profil.sql										FAIT
 
 Item11 : supprimer mon compte
-	ps_supprimer_mon_profil.sql
+	ps_supprimer_mon_profil.sql									A FAIRE
 
 Item12 : s'inscrire sur le réseau social
-	ps_creer_mon_profil.sql
+	ps_creer_mon_profil.sql										A FAIRE
 
 Item13 : se connecter au réseau social
 	on va réutiliser ps_voir_fiche_adresse_mail.sql (Item16)
