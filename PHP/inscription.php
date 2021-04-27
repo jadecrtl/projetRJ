@@ -29,6 +29,8 @@ include("bdd.php")
     </style>
 </head>
 <body class="container">
+
+    <h1> Inscription </h1>
     <form action="connexion.php" method="POST" >
 
         <label>Pseudo :</label>
