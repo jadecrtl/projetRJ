@@ -64,9 +64,9 @@ Item12 : s'inscrire sur le réseau social
 Item13 : se connecter au réseau social
 	on va réutiliser ps_voir_fiche_adresse_mail.sql (Item16)
 	connexion.php (formulaire de connexion)						FAIT
-	connexion_verification.php (validation avec mot de passe crypté)
-	bdd.php (informations de connexion à la base)
-
+	connexion_verification.php (validation avec mot de passe crypté) FAIT
+	bdd.php (informations de connexion à la base)				FAIT
+	
 Item14 : se déconnecter au réseau social
 
 Item15 : commenter une publication
