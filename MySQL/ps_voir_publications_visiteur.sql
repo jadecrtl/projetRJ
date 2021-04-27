@@ -8,7 +8,7 @@ CREATE PROCEDURE ps_voir_publications_visiteur (IN p_pseudonyme VARCHAR(40), IN 
 BEGIN
     DECLARE l_id_utilisateur INT;
     DECLARE l_id_publication INT;
- 
+    
     SELECT @l_id_utilisateur := id_utilisateur 
     FROM t_utilisateur 
     WHERE pseudonyme = p_pseudonyme AND pouvoir = 'public';

@@ -8,7 +8,7 @@ CREATE PROCEDURE ps_voir_publications_admin (IN p_pseudonyme VARCHAR(40), IN p_i
 BEGIN
     DECLARE l_id_utilisateur INT;
     DECLARE l_id_publication INT;
- 
+    
     SELECT *
     FROM t_utilisateur;
 
