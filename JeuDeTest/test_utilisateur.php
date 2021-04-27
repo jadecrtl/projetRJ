@@ -14,7 +14,7 @@
     echo $requete_sql;
     $reponse_sql = $bdd->query($requete_sql);
 
-
+    
 
 
 ?>
