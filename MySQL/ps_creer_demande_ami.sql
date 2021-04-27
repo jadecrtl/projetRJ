@@ -10,13 +10,13 @@ BEGIN
     DECLARE l_id_repondant INT;
     DECLARE l_relation_existante INT;
 
-    SELECT @l_id_demandeur := id_utilisateur 
-    FROM t_utilisateur 
+    SELECT @l_id_demandeur := id_utilisateur_demandeur
+    FROM t_utilisateur_relation
     WHERE pseudonyme = p_pseudonyme_demandeur;
 
-    SELECT @l_id_repondant := id_utilisateur
-    FROM t_utilisateur 
-    WHERE pseudonyme = p_pseudonyme_demandeur
+    SELECT @l_id_repondant := id_utilisateur_repondant
+    FROM t_utilisateur_relation
+    WHERE pseudonyme = p_pseudonyme_repondant
     AND pouvoir = 'prive';
 
     SELECT @l_relation_existante := COUNT(*)
