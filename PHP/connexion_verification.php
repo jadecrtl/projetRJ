@@ -15,12 +15,7 @@
             (filter_var($_POST['saisie_adresse_mail'], FILTER_VALIDATE_EMAIL))
         ) {
             include ("bdd.php");
-            try {
-                $bdd = new PDO(DSN, LOGIN_BDD, PASS_BDD);
-            }
-            catch (Exception $e) {
-                die('Erreur bdd : '.$e->getMessage());
-            }
+            
             $requete_sql = 'CALL ps_voir_fiche_adresse_mail("'.$_POST['saisie_adresse_mail'].'")';
             $reponse_sql = $bdd->query($requete_sql);
             $resultat_requete = $reponse_sql->fetchAll(); //On veut toute les lignes du tableau pour être sur qu'il n'y a qu'un seul résultat
