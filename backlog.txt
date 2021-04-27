@@ -33,10 +33,13 @@ Item02 : création des données de test.
 
 Item03 : création des procédures stockées pour consulter les publications.
 	ps_voir_publications.sql									FAIT
-	ps_voir_publications_admin.sql		FAIT
-	ps_voir_publications_prive.sql		FAIT
-	ps_voir_publications_public.sql		FAIT
-	ps_voir_publications_visiteur.sql	FAIT
+	ps_voir_publications_admin.sql								FAIT
+	ps_voir_publications_prive.sql								FAIT
+	ps_voir_publications_public.sql								FAIT
+	ps_voir_publications_visiteur.sql							FAIT
+
+Je fais un test push et pull
+
 
 Item04 : récupérer les commentaires des publications.
 	ps_voir_commentaires.sql									FAIT
