@@ -55,7 +55,7 @@ Item08 : accepter une demande d'ami
 	ps_creer_acceptation_ami.sql								FAIT
 
 Item09 : refuser une demande d'ami
-	ps_supprimer_demande_ami.sql								A FAIRE
+	ps_supprimer_demande_ami.sql								FAIT
 
 Item10 : voir mon compte sur ProjetRJ (mes publications)
 	ps_voir_mon_profil.sql										FAIT
@@ -69,7 +69,7 @@ Item12 : s'inscrire sur le réseau social
 Item13 : se connecter au réseau social
 	on va réutiliser ps_voir_fiche_adresse_mail.sql (Item16)
 	connexion.php (formulaire de connexion)						FAIT
-	connexion_verification.php (validation avec mot de passe crypté) FAIT
+	connexion_verification.php (validation avec mdp crypté) 	FAIT
 	bdd.php (informations de connexion à la base)				FAIT
 	
 Item14 : se déconnecter au réseau social
