@@ -81,3 +81,9 @@ Item15 : commenter une publication
 Item16 : voir ma fiche personelle
 	ps_voir_fiche_adresse_mail.sql								FAIT
 
+Item17 : voir la liste de mes relations
+	ps_voir_amis.sql											FAIT
+
+Item18 : voir mes demandes en attente
+	ps_voir_attentes.sql										A FAIRE (voir dans Item17)
+
