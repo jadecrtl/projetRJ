@@ -1,5 +1,7 @@
 <?php 
 include("bdd.php")
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +36,7 @@ include("bdd.php")
     <form action="connexion.php" method="POST" >
 
         <label>Pseudo :</label>
-        <input type="text" name="pseudo"> <br>
+        <input type="text" name="pseudonyme"> <br>
 
         <label>Adresse mail :</label>
         <input type="text" name="mail"> <br>
