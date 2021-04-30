@@ -24,10 +24,10 @@ Item02 : création des données de test.
 	creation_test_utilisateur.sql								FAIT
 	creation_test_publication.sql								FAIT	ps_creer_publication	FAIT
 	creation_test_relation.sql									FAIT	ps_creer_abonnement		FAIT
-	creation_test_commentaire_sur_publication.sql				A FAIRE
+	creation_test_commentaire_sur_publication.sql				FAIT
 
 	test_utilisateur.php										FAIT
-	test_admin.php												A FAIRE
+	test_admin.php												FAIT
 	test_visiteur.php											A FAIRE
 
 

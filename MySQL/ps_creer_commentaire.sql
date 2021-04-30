@@ -2,7 +2,7 @@ USE ProjetRJ;
 
 DROP PROCEDURE IF EXISTS ps_creer_commentaire;
 
-DELIMITER #
+DELIMITER #ê
 
 CREATE PROCEDURE ps_creer_commentaire (IN p_pseudonyme VARCHAR(40), IN p_id_publication INT, IN p_texte_commentaire TEXT)
 BEGIN
