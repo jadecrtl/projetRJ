@@ -1,6 +1,13 @@
 <?php 
 include("bdd.php")
 
+// $pseudonyme = $_POST['pseudonyme'];
+// $adresseMail = $_POST['mail'];
+// $mdp = $_POST['mdp'];
+$nom = "rayana";
+
+echo $nom;
+
 
 ?>
 <!DOCTYPE html>
