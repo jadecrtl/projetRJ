@@ -1,10 +1,10 @@
 USE ProjetRJ;
 
-DROP PROCEDURE IF EXISTS ps_voir_attentes;
+DROP PROCEDURE IF EXISTS ps_voir_nouveaux_amis;
 
 DELIMITER #
 
-CREATE PROCEDURE ps_voir_attentes (IN p_pseudonyme VARCHAR(40))
+CREATE PROCEDURE ps_voir_nouveaux_amis (IN p_pseudonyme VARCHAR(40))
 BEGIN
 
     DECLARE l_id_utilisateur INT;
