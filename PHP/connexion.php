@@ -10,7 +10,7 @@
         - html
         - CSS
     -->
-    
+
 </head>
 <body>
     <form action="connexion_verification.php" method="post">

@@ -1,12 +1,14 @@
 <?php 
-include("bdd.php")
+include("bdd.php");
 
-// $pseudonyme = $_POST['pseudonyme'];
-// $adresseMail = $_POST['mail'];
-// $mdp = $_POST['mdp'];
-$nom = "rayana";
+$pseudonyme = $_POST['pseudonyme'];
+$adresseMail = $_POST['mail'];
+$mdp = $_POST['mdp'];
 
-echo $nom;
+
+$requete_sql = " INSERT INTO t_utilisateur (pseudonyme, adresse_mail, mot_de_passe, pouvoir) VALUES ('$pseudonyme','$adresse_mail','$mdp','prive') ";
+
+$reponse_sql = $bdd->query($requete_sql);
 
 
 ?>

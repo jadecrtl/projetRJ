@@ -1,2 +1,2 @@
-sudo cp *.php /Applications/MAMP/htdocs/mode-up
+sudo cp *.php /Applications/MAMP/htdocs/mode-up/
 
