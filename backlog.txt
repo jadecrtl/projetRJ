@@ -22,8 +22,8 @@ Item01 : création de la base de données. Fichier ProjetRJ.sql FAIT
 
 Item02 : création des données de test.
 	creation_test_utilisateur.sql								FAIT
-	creation_test_publication.sql								FAIT	ps_creer_publication	FAIT
-	creation_test_relation.sql									FAIT	ps_creer_abonnement		FAIT
+	creation_test_publication.sql								FAIT	ps_creer_publication										FAIT
+	creation_test_relation.sql									FAIT	ps_creer_abonnement											FAIT
 	creation_test_commentaire_sur_publication.sql				FAIT
 
 	test_utilisateur.php										FAIT
