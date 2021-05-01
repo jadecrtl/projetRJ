@@ -1,25 +1,25 @@
 USE ProjetRJ;
 
-DROP PROCEDURE IF EXISTS ps_voir_publications_admin
+DROP PROCEDURE IF EXISTS ps_voir_publications_admin;
 
 DELIMITER #
 
-CREATE PROCEDURE ps_voir_publications_admin (IN p_pseudonyme VARCHAR(40), IN p_id_publication INT, IN p_id_commentaire INT)
+CREATE PROCEDURE ps_voir_publications_admin (IN p_pseudonyme VARCHAR(40))
 BEGIN
     DECLARE l_id_utilisateur INT;
-    DECLARE l_id_publication INT;
-    
-    SELECT *
-    FROM t_utilisateur;
+    SET @l_id_utilisateur = NULL;
 
-    SELECT *
-    FROM t_publication;
+    SELECT @l_id_utilisateur := id_utilisateur 
+    FROM t_utilisateur 
+    WHERE pseudonyme = p_pseudonyme
+    AND pouvoir = 'admin';
 
-    SELECT *
-    FROM t_commentaire;
-
-
-
+    IF (@l_id_utilisateur IS NOT NULL) THEN
+        SELECT u.pseudonyme, p.texte_publication, p.date_creation
+        FROM t_publication p
+        JOIN t_utilisateur u ON (p.id_utilisateur = u.id_utilisateur)
+        ORDER BY p.date_creation DESC;
+    END IF;
 END#
 
 DELIMITER ;
