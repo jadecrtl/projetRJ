@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 /**
  * 1. Vérifier les données POST transmises ($username + $password)
  * 2. Connexion à la base de données
@@ -7,7 +7,7 @@
  * 4. Vérifier la correspondance entre le $password et le $hash
  * 5. Créer la SESSION['user']
  */
-    session_start();
+    
     if (isset($_POST['connexion']) && $_POST['connexion'] == 'Connexion') {
         if (
             (isset($_POST['saisie_adresse_mail']) && !empty($_POST['saisie_adresse_mail'])) &&
@@ -23,12 +23,12 @@
 
             if ($resultat_compte == 1) {
                 $connexion_valide = password_verify($_POST['saisie_mot_de_passe'], $resultat_requete[0]['mot_de_passe']);
-
                 if ($connexion_valide) {
+
                     $_SESSION['pseudonyme_connecte'] = $resultat_requete[0]['pseudonyme'];
-                    
-                    header('Location: http://localhost:8888/mode-up/accueil.php');
-                      exit();
+                    echo "Vous êtes connecté(e) en tant que ".$_SESSION['pseudonyme_connecte']."</br>";
+                    echo "Retourner à la page de <a href=\"accueil.php\">accueil</a>";
+                    exit();    
 
                 }
                 else {
