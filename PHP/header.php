@@ -11,23 +11,23 @@ include('bdd.php');
 </head>
 <body>
 <nav>
-    <ul class="nav justify-content-center text-decoration-none ">
+    <ul >
         <div>
             <a href="accueil.php"><img src="logo.png"></a> <br>
         </div>
 
         <li>
-            <a href="Membres.php">Notifications</a>
+            <a>Notifications</a>
         </li>
         <li>
-            <a href="Membres.php">Messages</a>
+            <a>Demande d'ami</a>
         </li>
                     
-        <li class="nav-item px-3">
+        <li >
             <?php if (isset($_SESSION['user'])){
-            echo '<a class="nav-link color3" href="deconnexion.php">Deconnexion</a>';
+            echo '<a href="deconnexion.php">Deconnexion</a>';
             } else { 
-            echo '<a class="nav-link color3" href="connexion.php">Connexion</a>';
+            echo '<a href="connexion.php">Connexion</a>';
             } ?>
         </li>
                     
