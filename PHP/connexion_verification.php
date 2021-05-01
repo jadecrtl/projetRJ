@@ -23,11 +23,12 @@
 
             if ($resultat_compte == 1) {
                 $connexion_valide = password_verify($_POST['saisie_mot_de_passe'], $resultat_requete[0]['mot_de_passe']);
+
                 if ($connexion_valide) {
                     $_SESSION['pseudonyme_connecte'] = $resultat_requete[0]['pseudonyme'];
-                    echo "Vous êtes connecté(e) en tant que ".$_SESSION['pseudonyme_connecte']."</br>";
-                    echo "Retourner à la page de <a href=\"accueil.php\">accueil</a>";
-                    exit();    
+                    
+                    header('Location: http://localhost:8888/mode-up/accueil.php');
+                      exit();
 
                 }
                 else {

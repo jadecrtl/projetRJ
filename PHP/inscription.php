@@ -7,7 +7,7 @@ $mdp = $_POST['mdp'];
 
 
 $requete_sql = " INSERT INTO t_utilisateur (pseudonyme, adresse_mail, mot_de_passe, pouvoir) VALUES ('$pseudonyme','$adresse_mail','$mdp','prive') ";
-
+echo $requete_sql;
 $reponse_sql = $bdd->query($requete_sql);
 
 
