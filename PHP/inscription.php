@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php 
 include("bdd.php");
 
@@ -12,6 +13,8 @@ $reponse_sql = $bdd->query($requete_sql);
 
 
 ?>
+=======
+>>>>>>> 084ea286f8e683827a1e1a5506846aa089516ea3
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,22 +44,23 @@ $reponse_sql = $bdd->query($requete_sql);
 </head>
 <body class="container">
 
-    <h1> Inscription </h1>
-    <form action="connexion.php" method="POST" >
+    <h1> Inscription : créer votre compte chez mode-up </h1>
+    <form action="inscription_verification.php" method="POST" >
 
         <label>Pseudo :</label>
-        <input type="text" name="pseudonyme"> <br>
+        <input type="text" name="saisie_pseudonyme"> <br>
 
         <label>Adresse mail :</label>
-        <input type="text" name="mail"> <br>
+        <input type="text" name="saisie_adresse_mail"> <br>
 
         <label>Mot de passe :</label>
-        <input type="password" name="mdp"> <br>
+        <input type="password" name="saisie_mdp1"> <br>
 
-        <input type="submit" value="se connecter">
+        <label>Confirmer votre mot de passe :</label>      
+        <input type="password" name="saisie_mdp2"> <br>
 
-    </form>
-    
-    
+        <input type="submit" name="inscription" value="Inscription">
+
+    </form>    
 </body>
 </html>
