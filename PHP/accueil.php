@@ -4,8 +4,9 @@ include('header.php');
 ?>
   <h1>Bienvenuuuueee</h1>  
 
-  <div>
+<div>
   <!--INSERTION DE PUBLICATION-->
   </div>
+  
 </body>
 </html>
