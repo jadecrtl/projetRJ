@@ -1,17 +1,3 @@
-<?php 
-include("bdd.php");
-
-$pseudonyme = $_POST['pseudonyme'];
-$adresseMail = $_POST['mail'];
-$mdp = $_POST['mdp'];
-
-
-$requete_sql = " INSERT INTO t_utilisateur (pseudonyme, adresse_mail, mot_de_passe, pouvoir) VALUES ('$pseudonyme','$adresse_mail','$mdp','prive') ";
-
-$reponse_sql = $bdd->query($requete_sql);
-
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,22 +27,23 @@ $reponse_sql = $bdd->query($requete_sql);
 </head>
 <body class="container">
 
-    <h1> Inscription </h1>
-    <form action="connexion.php" method="POST" >
+    <h1> Inscription : créer votre compte chez mode-up </h1>
+    <form action="inscription_verification.php" method="POST" >
 
         <label>Pseudo :</label>
-        <input type="text" name="pseudonyme"> <br>
+        <input type="text" name="saisie_pseudonyme"> <br>
 
         <label>Adresse mail :</label>
-        <input type="text" name="mail"> <br>
+        <input type="text" name="saisie_adresse_mail"> <br>
 
         <label>Mot de passe :</label>
-        <input type="password" name="mdp"> <br>
+        <input type="password" name="saisie_mdp1"> <br>
 
-        <input type="submit" value="se connecter">
+        <label>Confirmer votre mot de passe :</label>      
+        <input type="password" name="saisie_mdp2"> <br>
 
-    </form>
-    
-    
+        <input type="submit" name="inscription" value="Inscription">
+
+    </form>    
 </body>
 </html>

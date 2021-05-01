@@ -1,8 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connexion</title>
     <!--
         - redirection vers l'inscription
@@ -10,7 +8,6 @@
         - html
         - CSS
     -->
-
 </head>
 <body>
     <form action="connexion_verification.php" method="post">
@@ -22,7 +19,5 @@
     Si vous n'avez pas de compte <a href="inscription.php">Inscription</a>
     </br>
     Sinon naviguez en tant que <a href="accueil.php">visiteur</a>
-
-    
 </body>
 </html>
