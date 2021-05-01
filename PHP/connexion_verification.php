@@ -26,8 +26,9 @@ session_start();
                 if ($connexion_valide) {
 
                     $_SESSION['pseudonyme_connecte'] = $resultat_requete[0]['pseudonyme'];
-                    echo "Vous êtes connecté(e) en tant que ".$_SESSION['pseudonyme_connecte']."</br>";
-                    echo "Retourner à la page de <a href=\"accueil.php\">accueil</a>";
+                    //echo "Vous êtes connecté(e) en tant que ".$_SESSION['pseudonyme_connecte']."</br>";
+                    //echo "Retourner à la page de <a href=\"accueil.php\">accueil</a>";
+                    header('location: accueil.php');
                     exit();    
 
                 }
