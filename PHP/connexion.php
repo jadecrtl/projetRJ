@@ -13,7 +13,7 @@ session_start();
     -->
 </head>
 <body>
-    <form action="accueil.php" method="post">
+    <form action="connexion_verification.php" method="post">
         Adresse mail<input type="text" name="saisie_adresse_mail" value=""></br>
         Mot de passe<input type="password" name="saisie_mot_de_passe" value=""></br>
         <input type="submit" name="connexion" value="Connexion"></br>
