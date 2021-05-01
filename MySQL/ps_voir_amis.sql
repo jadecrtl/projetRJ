@@ -13,17 +13,9 @@ BEGIN
     FROM t_utilisateur
     WHERE pseudonyme = p_pseudonyme;
 
-    SELECT r.id_utilisateur_repondant id_utilisateur, u.pseudonyme, r.relation
-    FROM t_utilisateur_relation r, t_utilisateur u
-    WHERE r.id_utilisateur_demandeur = @l_id_utilisateur
-    AND r.relation = 'ami'
-    AND r.id_utilisateur_repondant = u.id_utilisateur
-    UNION
-    SELECT r.id_utilisateur_demandeur id_utilisateur, u.pseudonyme, r.relation
-    FROM t_utilisateur_relation r, t_utilisateur u
-    WHERE r.id_utilisateur_repondant = @l_id_utilisateur
-    AND r.relation = 'ami'
-    AND r.id_utilisateur_demandeur = u.id_utilisateur
+    SELECT id_utilisateur_ami, pseudonyme, 'ami' relation
+    FROM vue_amis
+    WHERE id_utilisateur = @l_id_utilisateur
     ORDER BY pseudonyme ASC;
 
 END#
