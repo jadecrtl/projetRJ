@@ -24,7 +24,7 @@ include('bdd.php');
         </li>
                     
         <li >
-            <?php if (isset($_SESSION['user'])){
+            <?php if (isset($_SESSION['pseudonyme_connecte'])){
             echo '<a href="deconnexion.php">Deconnexion</a>';
             } else { 
             echo '<a href="connexion.php">Connexion</a>';
