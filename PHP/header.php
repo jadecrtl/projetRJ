@@ -23,7 +23,7 @@ include('bdd.php');
             <a>Demande d'ami</a>
         </li>
                     
-        <li >
+        <li>
             <?php if (isset($_SESSION['pseudonyme_connecte'])){
             echo '<a href="deconnexion.php">Deconnexion</a>';
             } else { 
