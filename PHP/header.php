@@ -11,7 +11,7 @@ include('bdd.php');
 </head>
 <body>
 <nav>
-    <ul >
+    <ul>
         <div>
             <a href="accueil.php"><img src="logo.png"></a> <br>
         </div>
