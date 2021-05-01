@@ -5,13 +5,14 @@ include('bdd.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Accueil</title>
-</head>
-<body>
-<nav>
-    <ul>
+    <head>
+        <meta charset="UTF-8">
+        <title>Accueil</title>
+    </head>
+    <body>
+    <nav>
+        <ul>
+        
         <div>
             <a href="accueil.php"><img src="logo.png"></a> <br>
         </div>
@@ -19,19 +20,24 @@ include('bdd.php');
         <li>
             <a>Notifications</a>
         </li>
+        
         <li>
             <a>Demande d'ami</a>
         </li>
                     
         <li>
-            <?php if (isset($_SESSION['pseudonyme_connecte'])){
-            echo '<a href="deconnexion.php">Deconnexion</a>';
-            } else { 
-            echo '<a href="connexion.php">Connexion</a>';
-            } ?>
+            <?php
+            if (isset($_SESSION['pseudonyme_connecte'])){
+                echo '<a href="deconnexion.php">Deconnexion</a>';
+            } 
+            else { 
+                echo '<a href="connexion.php">Connexion</a>';
+            } 
+            ?>
         </li>
                     
-    </ul>
+        </ul>
                         
-</nav>
-
+        </nav>
+    </body>
+</html>

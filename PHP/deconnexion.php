@@ -1,11 +1,5 @@
 <?php
-
-    if (isset($_SESSION['pseudonyme_connecte'])) {
-
-        unset($_SESSION['pseudonyme_connecte']);
-    }
-    header ("Location: https://localhost/mode-up/connexion.php");
-
-
-
+    session_start();
+    session_unset();
+    header ("Location: accueil.php");
 ?>
