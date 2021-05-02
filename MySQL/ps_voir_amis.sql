@@ -9,9 +9,7 @@ BEGIN
 
     DECLARE l_id_utilisateur INT;
 
-    SELECT @l_id_utilisateur := id_utilisateur 
-    FROM t_utilisateur
-    WHERE pseudonyme = p_pseudonyme;
+    SET @l_id_utilisateur = (SELECT id_utilisateur FROM t_utilisateur WHERE pseudonyme = p_pseudonyme);
 
     SELECT id_utilisateur_ami, pseudonyme, 'ami' relation
     FROM vue_amis

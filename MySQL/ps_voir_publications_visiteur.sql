@@ -1,6 +1,6 @@
 USE ProjetRJ;
 
-DROP PROCEDURE IF EXISTS ps_voir_publications_visiteur
+DROP PROCEDURE IF EXISTS ps_voir_publications_visiteur;
 
 DELIMITER #
 
@@ -9,15 +9,11 @@ BEGIN
     DECLARE l_id_utilisateur INT;
     DECLARE l_id_publication INT;
     
-    SELECT @l_id_utilisateur := id_utilisateur 
-    FROM t_utilisateur 
-    WHERE pseudonyme = p_pseudonyme AND pouvoir = 'public';
+    SET @l_id_utilisateur = (SELECT id_utilisateur FROM t_utilisateur WHERE pseudonyme = p_pseudonyme AND pouvoir = 'public');
 
     SELECT @l_id_publication := id_publication
     FROM t_publication
     WHERE id_publication = p_id_publication AND pouvoir = 'public';
-
-
 
 END#
 

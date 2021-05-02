@@ -7,12 +7,8 @@ DELIMITER #
 CREATE PROCEDURE ps_voir_publications_admin (IN p_pseudonyme VARCHAR(40))
 BEGIN
     DECLARE l_id_utilisateur INT;
-    SET @l_id_utilisateur = NULL;
-
-    SELECT @l_id_utilisateur := id_utilisateur 
-    FROM t_utilisateur 
-    WHERE pseudonyme = p_pseudonyme
-    AND pouvoir = 'admin';
+    
+    SET @l_id_utilisateur = (SELECT id_utilisateur FROM t_utilisateur WHERE pseudonyme = p_pseudonyme AND pouvoir = 'admin');
 
     IF (@l_id_utilisateur IS NOT NULL) THEN
         SELECT u.pseudonyme, p.texte_publication, p.date_creation

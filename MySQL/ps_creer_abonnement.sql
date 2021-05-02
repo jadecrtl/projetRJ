@@ -10,19 +10,11 @@ BEGIN
     DECLARE l_id_demandeur INT;
     DECLARE l_relation_existante INT;
 
-    SELECT @l_id_influenceur := id_utilisateur 
-    FROM t_utilisateur 
-    WHERE pseudonyme = p_pseudonyme_influenceur 
-    AND pouvoir = 'public';
+    SET @l_id_influenceur = (SELECT id_utilisateur FROM t_utilisateur WHERE pseudonyme = p_pseudonyme_influenceur AND pouvoir = 'public');
 
-    SELECT @l_id_demandeur := id_utilisateur
-    FROM t_utilisateur 
-    WHERE pseudonyme = p_pseudonyme_demandeur;
+    SET @l_id_demandeur = (SELECT id_utilisateur FROM t_utilisateur WHERE pseudonyme = p_pseudonyme_demandeur);
 
-    SELECT @l_relation_existante := COUNT(*)
-    FROM t_utilisateur_relation
-    WHERE id_utilisateur_demandeur = l_id_demandeur
-    AND id_utilisateur_repondant = l_id_influenceur;
+    SET @l_relation_existante = (SELECT COUNT(*) FROM t_utilisateur_relation WHERE id_utilisateur_demandeur = l_id_demandeur AND id_utilisateur_repondant = l_id_influenceur);
 
     IF (@l_id_influenceur IS NOT NULL AND @l_id_demandeur IS NOT NULL AND @l_relation_existante = 0 AND @l_id_demandeur <> @l_id_influenceur) THEN    
         INSERT INTO t_utilisateur_relation (id_utilisateur_demandeur, id_utilisateur_repondant, relation)

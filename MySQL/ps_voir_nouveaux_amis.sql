@@ -9,10 +9,8 @@ BEGIN
 
     DECLARE l_id_utilisateur INT;
 
-    SELECT @l_id_utilisateur := id_utilisateur 
-    FROM t_utilisateur
-    WHERE pseudonyme = p_pseudonyme;
-    
+    SET @l_id_utilisateur = (SELECT id_utilisateur FROM t_utilisateur WHERE pseudonyme = p_pseudonyme);
+
     SELECT id_utilisateur, pseudonyme
     FROM t_utilisateur
     WHERE id_utilisateur NOT IN
