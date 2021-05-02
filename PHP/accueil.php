@@ -14,7 +14,9 @@ include('header.php');
 ?>
 
 </h1>  
-
+<?php
+  include('fil_publications.php');
+?>
 
 
 
