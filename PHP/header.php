@@ -28,7 +28,8 @@ include('bdd.php');
         <li>
             <?php
             if (isset($_SESSION['pseudonyme_connecte'])){
-                echo '<a href="deconnexion.php">Deconnexion</a>';
+                echo '<a href="deconnexion.php">Deconnexion</a><br/>';
+                echo '<a href="changer_mdp.php">Modifier votre mot de passe</a>';
             } 
             else { 
                 echo '<a href="connexion.php">Connexion</a>';
