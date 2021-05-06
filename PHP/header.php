@@ -13,10 +13,12 @@ include('bdd.php');
     <nav>
         <ul>
         
-        <div>
+        <li>
             <a href="accueil.php"><img src="logo.png"></a> <br>
-        </div>
-
+        </li>
+        <li>
+            <a href="profil.php">Profil</a>
+        </li>
         <li>
             <a>Notifications</a>
         </li>
@@ -29,7 +31,6 @@ include('bdd.php');
             <?php
             if (isset($_SESSION['pseudonyme_connecte'])){
                 echo '<a href="deconnexion.php">Deconnexion</a><br/>';
-                echo '<a href="changer_mdp.php">Modifier votre mot de passe</a>';
             } 
             else { 
                 echo '<a href="connexion.php">Connexion</a>';
