@@ -47,7 +47,7 @@ include('donne_profil.php');
             ?>
             <tr>
                 <!--
-                Ca marche pas ca aucune publication s'affiche car procédure de creation de publication ne fonctionne pas (je vais voir avec fahim)
+                Ca marche pas ca aucune publication s'affiche car procédure de creation de publication ne fonctionne pas 
                 -->
                 <td><?= $affiche['date_creation']?></td>
                 <td><?= $affiche['texte_publication']?></td>
