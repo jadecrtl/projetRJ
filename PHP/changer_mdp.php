@@ -1,3 +1,6 @@
+<?php
+include('header.php');
+?>
 <form action="changer_mdp_verification.php" method="POST">
 
     <label>Nouveau mot de passe :</label>
