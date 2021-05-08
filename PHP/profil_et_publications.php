@@ -74,6 +74,9 @@
                 }
         
                 $affiche_publications = mysqli_fetch_assoc($resultat_publications);
+                if (mysqli_num_rows($resultat_publications) == 0) {
+                    echo "Aucune publication.";
+                }
                 while($affiche_publications) {
                     echo "<article>";
                     echo "<h2>".$affiche_publications['pseudonyme']." le ".$affiche_publications['date_creation']."</h2>";
