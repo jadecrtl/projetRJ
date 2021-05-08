@@ -1,20 +1,14 @@
 <?php
-session_start();
-include('bdd.php');
-
+if (!isset($_SESSION)) {
+    session_start();
+}
 ?>
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Accueil</title>
-    </head>
-    <body>
-    <nav>
-        <ul>
-        
+
+<nav>
+<img src="img/mannequin.png" alt="image" width="100" height="100">    
+    <ul>        
         <li>
-            <a href="accueil.php"><img src="logo.png"></a> <br>
+            <a href="accueil.php">Accueil</a> <br>
         </li>
         <li>
             <a href="profil.php">Profil</a>
@@ -38,8 +32,6 @@ include('bdd.php');
             ?>
         </li>
                     
-        </ul>
+    </ul>
                         
-        </nav>
-    </body>
-</html>
+</nav>

@@ -1,6 +1,8 @@
 <?php
-    //session_start();
-
+    if (!isset($_SESSION)) {
+        session_start();
+    }
+    include('bdd.php');
     //test si on est connecté
     if (isset($_SESSION['pseudonyme_connecte']) && !empty($_SESSION['pseudonyme_connecte'])) {
         
@@ -36,8 +38,3 @@
     else { 
 
     }
-
-
-
-
-?>

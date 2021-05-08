@@ -10,7 +10,7 @@ include('donne_profil.php');
         <table>
             
             <tr>
-                <td> <img src="img/avatar.png" alt="image"> </td>
+                <td> <img src="img/mannequin.png" alt="image" width="100" height="100"> </td>
                 <td></td>
                 <!--EXTRA qu'on pourrait faire mais on va pas le faire MAIS a presenter-->
                 <td> <a href="#">Modifier votre avatar</a> </td>
