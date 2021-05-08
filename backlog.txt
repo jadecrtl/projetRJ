@@ -84,4 +84,3 @@ Item17 : voir la liste de mes relations
 
 Item18 : voir mes demandes en attente
 	ps_voir_attentes.sql										FAIT
-
