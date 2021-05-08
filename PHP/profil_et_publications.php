@@ -2,7 +2,6 @@
     if (!isset($_SESSION)) {
         session_start();
     }
-    include('bdd.php');
 ?>
     <?php
     ?>
@@ -19,6 +18,7 @@
             <tr>
                 <th scope="col">Pseudo :
                 <?php
+                include('bdd.php');
                 if (isset($_SESSION['pseudonyme_connecte']) && !empty($_SESSION['pseudonyme_connecte'])) {
                     $requete = "CALL ps_voir_mon_profil('".$_SESSION['pseudonyme_connecte']."')";
                     $resultat = mysqli_query($connexion,$requete);
@@ -85,6 +85,7 @@
                     $affiche_publications = mysqli_fetch_assoc($resultat_publications);
                 }
                 mysqli_free_result($resultat_publications);
+                mysqli_close($connexion);
             }
         ?>
     </div>
