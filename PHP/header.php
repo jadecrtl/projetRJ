@@ -19,8 +19,12 @@ if (!isset($_SESSION)) {
         </li>
 
         <li>
-            <a>Demande d'ami</a>
+            <a href="accueil_gestion_ami.php">Gérer mes amis</a>
         </li>
+
+        <li>
+            <a href="accueil_recherche_ami.php">Rechercher des amis</a>
+        </li>        
 
         <li>
             <?php
