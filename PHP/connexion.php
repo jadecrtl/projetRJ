@@ -7,12 +7,6 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <title>Connexion</title>
-    <!--
-        - redirection vers l'inscription
-        - redirection vers l'accueil ( mode visiteur)
-        - html
-        - CSS
-    -->
 </head>
 
 <body>

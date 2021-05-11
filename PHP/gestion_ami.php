@@ -53,7 +53,4 @@
         echo "Retourner à la page d'<a href=\"accueil.php\">accueil</a>";
         exit();    
     }
-    
-
-
 ?>

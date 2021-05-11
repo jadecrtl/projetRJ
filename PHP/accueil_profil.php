@@ -1,24 +1,26 @@
 <?php
-  if (!isset($_SESSION)) {
-    session_start();
-  }
+if (!isset($_SESSION)) {
+  session_start();
+}
 ?>
 <html>
+
 <head>
-  <meta charset="UTF-8"/>
+  <meta charset="UTF-8" />
   <title>Accueil de mode-up</title>
-  <link rel="stylesheet" href="mode-up.css"/>
+  <link rel="stylesheet" href="mode-up.css" />
 </head>
-  <body>
+
+<body>
   <header>
-    <?php include('header.php');?>
+    <?php include('header.php'); ?>
   </header>
-      
-    <div>
+
+  <div>
     <?php
-      include('profil_et_publications.php');
+    include('profil_et_publications.php');
     ?>
-    </div>
+  </div>
 
 
 
@@ -26,4 +28,5 @@
 
 
 </body>
+
 </html>
