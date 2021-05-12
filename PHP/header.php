@@ -11,9 +11,13 @@ if (!isset($_SESSION)) {
         <li>
             <a href="accueil.php">Accueil</a> <br>
         </li>
-        <li>
-            <a href="accueil_profil.php">Profil</a>
-        </li>
+                <?php
+                if (isset($_SESSION['pseudonyme_connecte'])) {
+                    echo "<li>";
+                    echo "<a href=\"accueil_profil.php\">Profil de ".$_SESSION['pseudonyme_connecte']."</a>";
+                    echo "</li>";
+                }
+                ?>
         <li>
             <a>Notifications</a>
         </li>
@@ -24,7 +28,7 @@ if (!isset($_SESSION)) {
 
         <li>
             <a href="accueil_recherche_ami.php">Rechercher des amis</a>
-        </li>        
+        </li>
 
         <li>
             <?php
