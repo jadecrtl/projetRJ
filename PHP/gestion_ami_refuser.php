@@ -5,7 +5,6 @@
     if (isset($_POST['refuser']) && $_POST['refuser'] == 'Refuser') {
         include('bdd.php');
         $requete = "CALL ps_supprimer_demande_ami('".$_POST['pseudonyme_a_refuser']."', '".$_SESSION['pseudonyme_connecte']."')";
-        echo $requete;
         $resultat = mysqli_query($connexion, $requete);
         if (!$resultat) {
             echo mysqli_error($connexion);

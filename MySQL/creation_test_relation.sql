@@ -10,3 +10,4 @@ CALL ps_creer_abonnement('jade3', 'influe2');
 CALL ps_creer_abonnement('jade3', 'influe1');
 CALL ps_creer_demande_ami('influe1', 'rayana1');
 CALL ps_creer_demande_ami('influe1', 'rayana2');
+CALL ps_creer_demande_ami('jade1', 'rayana3');

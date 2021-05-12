@@ -5,7 +5,6 @@
     if (isset($_POST['accepter']) && $_POST['accepter'] == 'Accepter') {
         include('bdd.php');
         $requete = "CALL ps_creer_acceptation_ami('".$_POST['pseudonyme_a_accepter']."', '".$_SESSION['pseudonyme_connecte']."')";
-        echo $requete;
         $resultat = mysqli_query($connexion, $requete);
         if (!$resultat) {
             echo mysqli_error($connexion);
