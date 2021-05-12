@@ -20,6 +20,7 @@
             echo "<td>";
             echo "<form action=\"gestion_ami_refuser.php\" method=\"POST\">";
             echo "<input type=\"submit\" name=\"refuser\" value=\"Refuser\">";
+            echo "<input type=\"hidden\" name=\"pseudonyme_a_refuser\" value=".$ligne['pseudonyme'].">";
             echo "</form>";
             echo "</td>";
             echo "</tr>";
