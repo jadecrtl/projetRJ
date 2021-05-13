@@ -10,12 +10,11 @@ BEGIN
     
     SET @l_id_utilisateur = (SELECT id_utilisateur FROM t_utilisateur WHERE pseudonyme = p_pseudonyme AND pouvoir = 'admin');
 
-    IF (@l_id_utilisateur IS NOT NULL) THEN
-        SELECT u.pseudonyme, p.texte_publication, p.date_creation
-        FROM t_publication p
-        JOIN t_utilisateur u ON (p.id_utilisateur = u.id_utilisateur)
-        ORDER BY p.date_creation DESC;
-    END IF;
+    SELECT u.pseudonyme, p.texte_publication, p.date_creation
+    FROM t_publication p
+    JOIN t_utilisateur u ON (p.id_utilisateur = u.id_utilisateur)
+    ORDER BY p.date_creation DESC;
+
 END#
 
 DELIMITER ;

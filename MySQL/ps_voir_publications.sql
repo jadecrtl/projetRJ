@@ -5,17 +5,19 @@ DROP PROCEDURE IF EXISTS ps_voir_publications;
 DELIMITER #
 
 CREATE PROCEDURE ps_voir_publications (IN p_pseudonyme VARCHAR(40))
-BEGIN
-    DECLARE l_id_utilisateur INT;
-    
-    SET @l_id_utilisateur = (SELECT id_utilisateur FROM t_utilisateur WHERE pseudonyme = p_pseudonyme);
+BEGIN  
 
-    SELECT u.pseudonyme, p.texte_publication, p.date_creation
-    FROM t_publication p
-    JOIN t_utilisateur u ON (p.id_utilisateur = u.id_utilisateur)
-    WHERE p.id_utilisateur IN (SELECT id_utilisateur_ami FROM vue_amis WHERE id_utilisateur = @l_id_utilisateur)
-    AND p.statut_publication = 'publiee'
-    ORDER BY p.date_creation DESC;
+    DECLARE l_pouvoir ENUM("admin", "prive", "public");
+
+    SET @l_pouvoir = (SELECT pouvoir FROM t_utilisateur WHERE pseudonyme = p_pseudonyme);
+
+    IF (@l_pouvoir = "prive" OR @l_pouvoir = "public") THEN
+        CALL ps_voir_publications_prive_public(p_pseudonyme);
+    END IF;
+
+    IF (@l_pouvoir = "admin") THEN
+        CALL ps_voir_publications_admin(p_pseudonyme);
+    END IF;
 
 END#
 
