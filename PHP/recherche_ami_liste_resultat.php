@@ -9,7 +9,6 @@
 		{
 		include('bdd.php');
 		$requete = "CALL ps_voir_nouveaux_amis('".$_SESSION['pseudonyme_connecte']."', '".$_POST['critere_recherche']."')";
-		echo $requete;
 		$resultat = mysqli_query($connexion, $requete);
 		if (!$resultat) {
 			echo mysqli_error($connexion);
