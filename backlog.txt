@@ -18,7 +18,8 @@ Pour P3 : Veut pouvoir poster des publications. Veut pouvoir commenter sa public
 
 Pour P4 : Veut pouvoir publier et que tout le monde puisse voir ses publications (P2 et P3 et P4). Veut pouvoir commenter sa publication et celle des autres auquel il est abonné. Veut pouvoir supprimer ses publications et/ou ses commentaires. Veut pouvoir supprimer son compte. Veut pouvoir s’abonner à d’autres utilisateurs (P3 et P4). 
 
-Item01 : création de la base de données. Fichier ProjetRJ.sql FAIT
+Item01 : création de la base de données.
+	ProjetRJ.sql 												FAIT
 
 Item02 : création des données de test.
 	creation_test_utilisateur.sql								FAIT
@@ -32,9 +33,10 @@ Item02 : création des données de test.
 
 
 Item03 : création des procédures stockées pour consulter les publications.
-	ps_voir_publications.sql									FAIT
+	ps_voir_publications.sql (sur la page d'accueil)			FAIT
 	ps_voir_publications_admin.sql								FAIT
 	ps_voir_publications_visiteur.sql							FAIT
+	ps_voir_publications_profil.sql (sur la page de profil)		FAIT
 
 Item04 : récupérer les commentaires des publications.
 	ps_voir_commentaires.sql									FAIT
@@ -55,32 +57,41 @@ Item08 : accepter une demande d'ami
 Item09 : refuser une demande d'ami
 	ps_supprimer_demande_ami.sql								FAIT
 
-Item10 : voir mon compte sur ProjetRJ (mes publications)
+Item10 : voir mon compte sur ProjetRJ (mes données)
 	ps_voir_mon_profil.sql										FAIT
 
 Item11 : supprimer mon compte
 	ps_supprimer_mon_profil.sql									A FAIRE
 
-Item12 : s'inscrire sur le réseau social
-	ps_creer_mon_profil.sql										A FAIRE
-
-Item13 : se connecter au réseau social
+Item12 : se connecter au réseau social
 	on va réutiliser ps_voir_fiche_adresse_mail.sql (Item16)
 	connexion.php (formulaire de connexion)						FAIT
 	connexion_verification.php (validation avec mdp crypté) 	FAIT
 	bdd.php (informations de connexion à la base)				FAIT
 	
-Item14 : se déconnecter au réseau social
+Item13 : se déconnecter au réseau social
 	deconnexion.php												FAIT					
 
-Item15 : commenter une publication
+Item14 : commenter une publication
 	ps_creer_commentaire.sql									FAIT
 
-Item16 : voir ma fiche personelle
+Item15 : voir ma fiche personelle
 	ps_voir_fiche_adresse_mail.sql								FAIT
 
-Item17 : voir la liste de mes relations
+Item16 : voir la liste de mes relations
 	ps_voir_amis.sql											FAIT
 
-Item18 : voir mes demandes en attente
+Item17 : voir mes demandes en attente
 	ps_voir_attentes.sql										FAIT
+
+Item18 : ajouter en ami 
+	ps_ajouter_ami.sql											FAIT
+
+Item19 : créer une publication
+	ps_creer_publication.sql									FAIT
+
+Item20 : voir de futurs nouveaux amis
+	ps_voir_nouveaux_amis.sql									FAIT
+
+Item21 : créer une vue amis
+	vue_amis.sql 												FAIT
