@@ -18,28 +18,17 @@ BEGIN
         SELECT r.id_utilisateur_repondant id_utilisateur
         FROM t_utilisateur_relation r, t_utilisateur u
         WHERE r.id_utilisateur_demandeur = @l_id_utilisateur
-        AND r.relation = 'ami'
+        AND r.relation IN('ami', 'attente', 'refus')
         AND r.id_utilisateur_repondant = u.id_utilisateur
         UNION
         SELECT r.id_utilisateur_demandeur id_utilisateur
         FROM t_utilisateur_relation r, t_utilisateur u
         WHERE r.id_utilisateur_repondant = @l_id_utilisateur
-        AND r.relation = 'ami'
-        AND r.id_utilisateur_demandeur = u.id_utilisateur
-        UNION
-        SELECT r.id_utilisateur_repondant id_utilisateur
-        FROM t_utilisateur_relation r, t_utilisateur u
-        WHERE r.id_utilisateur_demandeur = @l_id_utilisateur
-        AND r.relation = 'attente'
-        AND r.id_utilisateur_repondant = u.id_utilisateur
-        UNION
-        SELECT r.id_utilisateur_demandeur id_utilisateur
-        FROM t_utilisateur_relation r, t_utilisateur u
-        WHERE r.id_utilisateur_repondant = @l_id_utilisateur
-        AND r.relation = 'attente'
+        AND r.relation IN('ami', 'attente', 'refus')
         AND r.id_utilisateur_demandeur = u.id_utilisateur
         )
-        ORDER BY pseudonyme ASC;
+    AND id_utilisateur <> @l_id_utilisateur
+    ORDER BY pseudonyme ASC;
 
 END#
 
