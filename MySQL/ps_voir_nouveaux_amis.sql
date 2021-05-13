@@ -32,6 +32,7 @@ BEGIN
         )
     AND id_utilisateur <> @l_id_utilisateur
     AND pseudonyme LIKE @l_critere_recherche
+    AND pouvoir NOT IN ('admin')
     ORDER BY pseudonyme ASC;
 
 END#

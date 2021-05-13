@@ -20,7 +20,7 @@
 			echo "<tr>";
 			echo "<td>".$ligne['pseudonyme']."</td>";
 			echo "<td>";
-			echo "<form action=\"toto\" method=\"POST\" >";
+			echo "<form action=\"gestion_ami_ajouter.php\" method=\"POST\" >";
 			echo "<input type=\"submit\" name=\"ajouter\" value=\"Ajouter\">";
 			echo "<input type=\"hidden\" name=\"pseudonyme_a_ajouter\" value=".$ligne['pseudonyme'].">";
 			echo "</form>";
