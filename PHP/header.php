@@ -18,6 +18,7 @@ if (!isset($_SESSION)) {
             echo "</li>";
         }
         ?>
+
         <?php
         if (isset($_SESSION['pseudonyme_connecte'])) {
             echo "<li>";
@@ -47,6 +48,14 @@ if (!isset($_SESSION)) {
             echo '<a href="deconnexion.php">Deconnexion</a><br/>';
         } else {
             echo '<a href="connexion.php">Connexion</a>';
+        }
+        ?>
+
+        <?php
+        if (isset($_SESSION['pseudonyme_connecte'])) {
+            echo "<form action=\"accueil_creer_publication.php\" method=\"POST\">";
+            echo "<input type=\"submit\" name=\"creation publication\" value=\"Creation publication\" />";
+            echo "</form>";
         }
         ?>
 
