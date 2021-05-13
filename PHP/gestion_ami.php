@@ -41,6 +41,7 @@
             echo "<td>";
             echo "<form action=\"gestion_ami_desabonner.php\" method=\"POST\">";
             echo "<input type=\"submit\" name=\"retirer\" value=\"Retirer\">";
+            echo "<input type=\"hidden\" name=\"pseudonyme_a_retirer\" value=".$ligne['pseudonyme'].">";
             echo "</form>";
             echo "</td>";
             echo "</tr>";
