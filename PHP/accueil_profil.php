@@ -21,12 +21,6 @@ if (!isset($_SESSION)) {
     include('profil_et_publications.php');
     ?>
   </div>
-
-
-
-
-
-
 </body>
 
 </html>
