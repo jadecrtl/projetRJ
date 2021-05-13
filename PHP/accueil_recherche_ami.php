@@ -14,8 +14,8 @@ if (!isset($_SESSION)) {
 
 <body>
 	<header><?php include('header.php'); ?></header>
-	<div><?php include('barre_recherche_ami.php');?></div>
-	<div><?php include('recherche_ami.php'); ?></div>
+	<div><?php include('recherche_ami_barre.php'); ?></div>
+	<div><?php include('recherche_ami_liste_resultat.php');?></div>
 </body>
 
 </html>
