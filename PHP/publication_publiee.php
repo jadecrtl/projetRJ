@@ -4,7 +4,7 @@
     }
     if (isset($_POST['publier']) && $_POST['publier'] == 'Publier') {
         include('bdd.php');
-        $requete = "CALL ps_creer_publication('".$_POST['pseudonyme_a_accepter']."', '".$_SESSION['pseudonyme_connecte']."')";
+        $requete = "CALL ps_creer_publication('".$_SESSION['pseudonyme_connecte']."', '')";
         $resultat = mysqli_query($connexion, $requete);
         if (!$resultat) {
             echo mysqli_error($connexion);
