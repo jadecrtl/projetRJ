@@ -29,7 +29,6 @@ Item02 : création des données de test.
 
 	test_utilisateur.php										FAIT
 	test_admin.php												FAIT
-	test_visiteur.php											A FAIRE
 
 
 Item03 : création des procédures stockées pour consulter les publications.
@@ -47,7 +46,7 @@ Item04 : récupérer les commentaires des publications.
 Item05 : chercher des gens pour faire des nouvelles relations
 	ps_voir_nouveaux_amis.sql									FAIT
 
-Item06 : s'abonner à un influenceur : un influenceur accepte tout le monde et ne peut refuser personnes
+Item06 : s'abonner à un influenceur : un influenceur accepte tout le monde et ne peut refuser personne
 	ps_creer_abonnement.sql										FAIT
 
 Item07 : faire une demande d'ami
@@ -97,3 +96,23 @@ Item20 : voir de futurs nouveaux amis
 
 Item21 : créer une vue amis
 	vue_amis.sql 												FAIT
+
+Item22 : supprimer une publication
+	ps_supprimer_publication.sql 								A FAIRE
+	Modifier la page profil de l'admin pour afficher toute les publications publiée (ps_voir_publications_profil).
+	Ajouter le bouton supprimer qui va poster l'id_publication.
+	Ecrire le traitement de suppression qui appelle la ps_supprimer_publication.
+	Retour vers la page profil.
+
+Item23 : notification du nombre de demandes en attentes pour le pseudonyme donné
+	select count(*)
+	from t_utilisateur_relation r
+	join t_utilisateur u on (r.id_utilisateur_repondant = u.id_utilisateur)
+	where u.pseudonyme = p_pseudonyme
+	and r.relation = 'attente';
+
+Item24 : voir nombres d'abonnés dans profil
+	select count(*)
+	from vue_amis a
+	join t_utilisateur u on (a.id_utilisateur = u.id_utilisateur)
+	where u.pseudonyme = p_pseudonyme;
