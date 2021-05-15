@@ -1,10 +1,10 @@
 USE ProjetRJ;
 
-DROP PROCEDURE IF EXISTS ps_supprimer_publications;
+DROP PROCEDURE IF EXISTS ps_supprimer_publication;
 
 DELIMITER #
 
-CREATE PROCEDURE ps_supprimer_publications (IN p_pseudonyme VARCHAR(40), IN p_id_publication INT)
+CREATE PROCEDURE ps_supprimer_publication (IN p_pseudonyme VARCHAR(40), IN p_id_publication INT)
 BEGIN  
 
     DECLARE l_pouvoir ENUM("admin", "prive", "public");

@@ -1,9 +1,9 @@
 USE ProjetRJ;
 
-DROP PROCEDURE IF EXISTS ps_supprimer_publication;
+DROP PROCEDURE IF EXISTS ps_supprimer_publication_prive_public;
 
 DELIMITER #
-CREATE PROCEDURE ps_supprimer_publication(IN p_pseudonyme VARCHAR(40), IN p_id_publication INT)
+CREATE PROCEDURE ps_supprimer_publication_prive_public(IN p_pseudonyme VARCHAR(40), IN p_id_publication INT)
 BEGIN 
     DECLARE l_id_utilisateur INT;
     DECLARE l_id_publication INT;

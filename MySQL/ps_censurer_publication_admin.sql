@@ -1,9 +1,9 @@
 USE ProjetRJ;
 
-DROP PROCEDURE IF EXISTS ps_censurer_publication;
+DROP PROCEDURE IF EXISTS ps_censurer_publication_admin;
 
 DELIMITER #
-CREATE PROCEDURE ps_censurer_publication(IN p_pseudonyme VARCHAR(40), IN p_id_publication INT)
+CREATE PROCEDURE ps_censurer_publication_admin(IN p_pseudonyme VARCHAR(40), IN p_id_publication INT)
 BEGIN 
     DECLARE l_id_utilisateur INT;
     DECLARE l_id_publication INT;
