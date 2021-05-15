@@ -99,9 +99,10 @@ Item21 : créer une vue amis
 
 Item22 : supprimer une publication
 	ps_supprimer_publication.sql 								A FAIRE
-	Modifier la page profil de l'admin pour afficher toute les publications publiée (ps_voir_publications_profil).
-	Ajouter le bouton supprimer qui va poster l'id_publication.
-	Ecrire le traitement de suppression qui appelle la ps_supprimer_publication.
+	ps_censurer_publication.sql									A FAIRE
+	ps_voir_publications_profil									FAIT	
+	Ajouter le bouton supprimer qui va poster l'id_publication.	FAIT
+	Ecrire le traitement de suppression qui appelle la ps_supprimer_publication.php
 	Retour vers la page profil.
 
 Item23 : notification du nombre de demandes en attentes pour le pseudonyme donné

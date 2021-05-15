@@ -89,6 +89,9 @@ if (!isset($_SESSION)) {
             echo "<h2>" . $affiche_publications['pseudonyme'] . " le " . $affiche_publications['date_creation'] . "</h2>";
             echo $affiche_publications['texte_publication'];
             echo "</article>";
+            echo "<form action=\"supprimer_publication.php\" method=\"POST\">";
+            echo "<input type=\"submit\" name=\"supprimer\" value=\"Supprimer\">";
+            echo "</form>";
             $affiche_publications = mysqli_fetch_assoc($resultat_publications);
         }
         mysqli_free_result($resultat_publications);
