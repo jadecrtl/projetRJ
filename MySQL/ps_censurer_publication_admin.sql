@@ -15,7 +15,6 @@ BEGIN
     IF (@l_id_utilisateur IS NOT NULL AND @l_id_publication IS NOT NULL) THEN    
     UPDATE t_publication
     SET statut_publication = 'censuree'
-    WHERE id_utilisateur = @l_id_utilisateur
     AND id_publication = @l_id_publication;
     END IF;
 
