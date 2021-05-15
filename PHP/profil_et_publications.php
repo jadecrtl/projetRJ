@@ -27,6 +27,7 @@ if (!isset($_SESSION)) {
                 echo "<p>Pseudo: " . $affiche['pseudonyme'] . "</p>";
                 echo "<p>Adresse: " . $affiche['adresse_mail'] . "</p>";
                 echo "<p>Pouvoir: " . $affiche['pouvoir'] . "</p>";
+                echo "<p>Abonnée: " . ."</p>";
             } else {
                 mysqli_free_result($resultat);
                 echo "erreur: profil introuvable ou multiple profil";
