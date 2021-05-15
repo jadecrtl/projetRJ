@@ -108,6 +108,7 @@ Item23 : notification du nombre de demandes en attentes pour le pseudonyme donn√
 	ps_voir_notifications.sql 									FAIT
 
 Item24 : voir nombres d'abonn√©s dans profil
+	ps_voir_nombre_amis.sql										FAIT
 	select count(*)
 	from vue_amis a
 	join t_utilisateur u on (a.id_utilisateur = u.id_utilisateur)
