@@ -10,9 +10,10 @@ BEGIN
     
     SET @l_id_utilisateur = (SELECT id_utilisateur FROM t_utilisateur WHERE pseudonyme = p_pseudonyme AND pouvoir = 'admin');
 
-    SELECT u.pseudonyme, p.texte_publication, p.date_creation
+    SELECT u.pseudonyme, p.texte_publication, p.date_creation, p.id_publication
     FROM t_publication p
     JOIN t_utilisateur u ON (p.id_utilisateur = u.id_utilisateur)
+    WHERE statut_publication = 'publiee'
     ORDER BY p.date_creation DESC;
 
 END#

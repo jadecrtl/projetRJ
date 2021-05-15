@@ -16,7 +16,7 @@ BEGIN
     END IF;
 
     IF (@l_pouvoir = "admin") THEN
-        CALL ps_censurer_publications_admin(p_pseudonyme, p_id_publication);
+        CALL ps_censurer_publication_admin(p_pseudonyme, p_id_publication);
     END IF;
 
 END#

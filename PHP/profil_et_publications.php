@@ -91,6 +91,7 @@ if (!isset($_SESSION)) {
             echo "</article>";
             echo "<form action=\"supprimer_publication.php\" method=\"POST\">";
             echo "<input type=\"submit\" name=\"supprimer\" value=\"Supprimer\">";
+            echo "<input type=\"hidden\" name=\"id_de_publication\" value=".$affiche_publications['id_publication'].">";
             echo "</form>";
             $affiche_publications = mysqli_fetch_assoc($resultat_publications);
         }

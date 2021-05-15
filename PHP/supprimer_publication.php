@@ -4,11 +4,11 @@
     }
     if (isset($_POST['supprimer']) && $_POST['supprimer'] == 'Supprimer') {
         include('bdd.php');
-        $requete = "CALL ps_supprimer_publication('".$_SESSION['pseudonyme_connecte']."', '')";
+        $requete = "CALL ps_supprimer_publication('".$_SESSION['pseudonyme_connecte']."', '".$_POST['id_de_publication']."')";
         $resultat = mysqli_query($connexion, $requete);
         if (!$resultat) {
             echo mysqli_error($connexion);
-            echo "Retourner à la page d'<a href=\"accueil.php\">acceuil</a>";
+            echo "Retourner à la page d'<a href=\"accueil.php\">accueil</a>";
             exit();    
         }
         else {
@@ -19,7 +19,7 @@
     }
     else {
         echo "Vous n'avez rien à faire ici.";
-        echo "Retourner à la page d'<a href=\"accueil.php\">acceuil</a>";
+        echo "Retourner à la page d'<a href=\"accueil.php\">accueil</a>";
         exit();
     }
 
