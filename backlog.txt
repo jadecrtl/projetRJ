@@ -105,11 +105,7 @@ Item22 : supprimer une publication
 	Retour vers la page profil.
 
 Item23 : notification du nombre de demandes en attentes pour le pseudonyme donné
-	select count(*)
-	from t_utilisateur_relation r
-	join t_utilisateur u on (r.id_utilisateur_repondant = u.id_utilisateur)
-	where u.pseudonyme = p_pseudonyme
-	and r.relation = 'attente';
+	ps_voir_notifications.sql 									FAIT
 
 Item24 : voir nombres d'abonnés dans profil
 	select count(*)

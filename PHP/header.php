@@ -21,9 +21,20 @@ if (!isset($_SESSION)) {
 
         <?php
         if (isset($_SESSION['pseudonyme_connecte'])) {
-            echo "<li>";
-            echo "<a>Notifications</a>";
-            echo "</li>";
+            include('bdd.php');
+            $requete = "CALL ps_voir_notifications('".$_SESSION['pseudonyme_connecte']."')";
+            $resultat = mysqli_query($connexion, $requete);
+            $ligne = mysqli_fetch_assoc($resultat);
+            if (!$resultat) {
+                echo mysqli_error($connexion);
+                echo "Echec de la requête.";
+                exit();
+            }
+            if (mysqli_num_rows($resultat) == 1) {
+                echo "<li>";
+                echo "<a>Demandes en amis: ".$ligne['nb_notif']."</a>";
+                echo "</li>";    
+            }
         }
         ?>
 
