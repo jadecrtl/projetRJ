@@ -6,7 +6,7 @@ if (!isset($_SESSION)) {
 
 <nav>
 
-    <img src="img/logoMode-up.png" alt="image" width="100" height="100">
+    <img src="img/logo.png" alt="image" width="100" height="100">
     <ul>
         <li>
             <a href="accueil.php">Accueil</a> <br>
