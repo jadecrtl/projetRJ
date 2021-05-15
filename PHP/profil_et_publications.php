@@ -27,7 +27,6 @@ if (!isset($_SESSION)) {
                 echo "<p>Pseudo: " . $affiche['pseudonyme'] . "</p>";
                 echo "<p>Adresse: " . $affiche['adresse_mail'] . "</p>";
                 echo "<p>Pouvoir: " . $affiche['pouvoir'] . "</p>";
-                echo "<p>Abonnée: " . ."</p>";
             } else {
                 mysqli_free_result($resultat);
                 echo "erreur: profil introuvable ou multiple profil";
@@ -41,7 +40,32 @@ if (!isset($_SESSION)) {
 
     </article>
 </div>
+<div>
+    <h1> Mes Abonnées </h1>
+    <article>
+    <?php
+        include('bdd.php');
+        if (isset($_SESSION['pseudonyme_connecte']) && !empty($_SESSION['pseudonyme_connecte'])) {
+            $requete = "CALL ps_voir_nombre_amis('" . $_SESSION['pseudonyme_connecte'] . "')";
+            $resultat = mysqli_query($connexion, $requete);
 
+            if (!$resultat) {
+                echo mysqli_error($connexion);
+                exit();
+            }
+            if (mysqli_num_rows($resultat) == 1) {
+                $affiche = mysqli_fetch_assoc($resultat);
+                echo "<p>Abonnée: " . $affiche['nb_abonnee'] . "</p>";
+            } else {
+                mysqli_free_result($resultat);
+                echo "erreur: profil introuvable ou multiple profil";
+            }
+        } else {
+            echo " Cher visiteur, veuillez vous connecter ou vous inscrire.";
+        }
+        ?> 
+    </article>
+</div>
 <div>
     <h1>Mes Publications</h1>
     <?php
