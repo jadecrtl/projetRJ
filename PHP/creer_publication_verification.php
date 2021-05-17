@@ -10,7 +10,9 @@
             exit();
         }
         include('bdd.php');
-        $requete = "CALL ps_creer_publication('".$_SESSION['pseudonyme_connecte']."', '".$_POST['publication']."')";
+        $comment = htmlspecialchars($_POST['publication'], ENT_QUOTES, "ISO-8859-1");
+
+        $requete = "CALL ps_creer_publication('".$_SESSION['pseudonyme_connecte']."', '".$comment."')";
         $resultat = mysqli_query($connexion, $requete);
         if (!$resultat) {
             echo mysqli_error($connexion);
