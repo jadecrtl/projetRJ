@@ -8,7 +8,7 @@ if (!isset($_SESSION)) {
 <head>
   <meta charset="UTF-8" />
   <title>Accueil de mode-up</title>
-  <link rel="stylesheet" href="mode-up.css" />
+  <link rel="stylesheet" href="css/mode-up.css" />
 </head>
 
 <body>
