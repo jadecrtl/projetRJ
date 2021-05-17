@@ -6,7 +6,7 @@ if (!isset($_SESSION)) {
 <div>
     <h1>Mon profil</h1>
     <article id="profil_avatar">
-        <p><img src="img/avatar.png" alt="image" width="100" height="100"></p>
+        <p><img src="img/avatar.png" alt="image"></p>
         <p><a href="#">Modifier votre avatar (non fonctionnel)</a></p>
     </article>
 
