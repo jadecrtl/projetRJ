@@ -10,6 +10,8 @@
             exit();
         }
         include('bdd.php');
+        $_POST['publication'] = str_replace("\r","\\r",$_POST['publication']);
+        $_POST['publication'] = str_replace("\n","\\n",$_POST['publication']);
         $comment = htmlspecialchars($_POST['publication'], ENT_QUOTES, "ISO-8859-1");
 
         $requete = "CALL ps_creer_publication('".$_SESSION['pseudonyme_connecte']."', '".$comment."')";

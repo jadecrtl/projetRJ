@@ -42,7 +42,7 @@ CREATE TABLE `t_commentaire` (
 --
 
 CREATE TABLE `t_publication` (
-  `id_publication` int(11) NOT NULL,
+  `id_publication` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `id_utilisateur` int(11) NOT NULL,
   `date_creation` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `texte_publication` text NOT NULL,

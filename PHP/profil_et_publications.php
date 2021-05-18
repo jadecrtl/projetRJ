@@ -85,9 +85,11 @@ if (!isset($_SESSION)) {
             echo "Aucune publication.";
         }
         while ($affiche_publications) {
+            $affiche_publications['texte_publication'] = str_replace("\\r","\r",$affiche_publications['texte_publication']);
+            $affiche_publications['texte_publication'] = str_replace("\\n","\n",$affiche_publications['texte_publication']);
             echo "<article>";
             echo "<h2>" . $affiche_publications['pseudonyme'] . " le " . $affiche_publications['date_creation'] . "</h2>";
-            echo $affiche_publications['texte_publication'];
+            echo nl2br($affiche_publications['texte_publication']);
             echo "</article>";
             echo "<form action=\"supprimer_publication.php\" method=\"POST\">";
             echo "<input type=\"submit\" name=\"supprimer\" value=\"Supprimer\">";
