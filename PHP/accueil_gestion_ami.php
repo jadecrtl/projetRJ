@@ -8,7 +8,7 @@ if (!isset($_SESSION)) {
 <head>
   <meta charset="UTF-8" />
   <title>Gérer mes amis</title>
-  <link rel="stylesheet" href="css/mode-up.css" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
