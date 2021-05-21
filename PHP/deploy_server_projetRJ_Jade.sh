@@ -1,1 +1,1 @@
-sudo cp -r * /opt/lampp/htdocs/mode-up/
+sudo cp -Rf * /opt/lampp/htdocs/mode-up/
