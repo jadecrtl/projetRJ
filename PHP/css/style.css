@@ -28,6 +28,10 @@ input {
     margin-bottom: 5px;
 }
 
+input:focus {
+    outline: 0px;
+}
+
 input[type="submit"] {
     background-color: darkolivegreen;
     color: white;
