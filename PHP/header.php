@@ -6,15 +6,16 @@ if (!isset($_SESSION)) {
 
 <nav>
 
-    <img src="img/logo.png" alt="image">
+    
     <ul>
         <li>
-            <a href="accueil.php">Accueil</a> <br>
+            
+            <a href="accueil.php"><img src="img/logo.png" alt="image"></a> 
         </li>
         <?php
         if (isset($_SESSION['pseudonyme_connecte'])) {
             echo "<li>";
-            echo "<a href=\"accueil_profil.php\">Profil de " . $_SESSION['pseudonyme_connecte'] . "</a>";
+            echo "<a href=\"accueil_profil.php\" class=\"amenu\">Profil de " . $_SESSION['pseudonyme_connecte'] . "</a>";
             echo "</li>";
         }
         ?>
@@ -32,7 +33,7 @@ if (!isset($_SESSION)) {
             }
             if (mysqli_num_rows($resultat) == 1) {
                 echo "<li>";
-                echo "<a>Demandes en amis: ".$ligne['nb_notif']."</a>";
+                echo "<a class=\"amenu\">Demandes en amis: ".$ligne['nb_notif']."</a>";
                 echo "</li>";    
             }
         }
@@ -41,7 +42,7 @@ if (!isset($_SESSION)) {
         <?php
         if (isset($_SESSION['pseudonyme_connecte'])) {
             echo "<li>";
-            echo "<a href=\"accueil_gestion_ami.php\">Gérer mes amis</a>";
+            echo "<a href=\"accueil_gestion_ami.php\" class=\"amenu\">Gérer mes amis</a>";
             echo "</li>";
         }
         ?>
@@ -49,22 +50,26 @@ if (!isset($_SESSION)) {
         <?php
         if (isset($_SESSION['pseudonyme_connecte'])) {
             echo "<li>";
-            echo "<a href=\"accueil_recherche_ami.php\">Rechercher des amis</a>";
+            echo "<a href=\"accueil_recherche_ami.php\" class=\"amenu\">Rechercher des amis</a>";
             echo "</li>";
         }
         ?>
 
         <?php
         if (isset($_SESSION['pseudonyme_connecte'])) {
-            echo '<a href="deconnexion.php">Deconnexion</a><br/>';
+            echo "<li>";
+            echo '<a href="deconnexion.php" class="amenu">Deconnexion</a><br/>';
+            echo "</li>";
         } else {
-            echo '<a href="connexion.php">Connexion</a>';
+            echo "<li>";
+            echo '<a href="connexion.php" class="amenu">Connexion</a>';
+            echo "</li>";
         }
         ?>
 
         <?php
         if (isset($_SESSION['pseudonyme_connecte'])) {
-            echo "<form action=\"accueil_creer_publication.php\" method=\"POST\">";
+            echo "<form action=\"accueil_creer_publication.php\" method=\"POST\" class=\"form\">";
             echo "<input type=\"submit\" name=\"creation publication\" value=\"Creation publication\" />";
             echo "</form>";
         }

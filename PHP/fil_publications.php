@@ -32,6 +32,7 @@ else
     {
         $ligne['texte_publication'] = str_replace("\\r","\r",$ligne['texte_publication']);
         $ligne['texte_publication'] = str_replace("\\n","\n",$ligne['texte_publication']);
+        
         echo "Publié(e) par&nbsp" . htmlspecialchars($ligne['pseudonyme']) . " le&nbsp" . htmlspecialchars($ligne['date_creation']) . "</br></br>";
         echo nl2br($ligne['texte_publication']) . "</br></br>";
     

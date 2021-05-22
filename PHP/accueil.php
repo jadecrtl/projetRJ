@@ -8,24 +8,26 @@ if (!isset($_SESSION)) {
 <head>
   <meta charset="UTF-8" />
   <title>Accueil de mode-up</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style2.css" />
 </head>
 
 <body>
+    <div>
+      <header><?php include('header.php'); ?></header>
+    </div> 
+    <div>
+      <h1>Bienvenue
+      <?php
+      if (isset($_SESSION['pseudonyme_connecte']) && !empty($_SESSION['pseudonyme_connecte'])) {
+        echo " " . $_SESSION['pseudonyme_connecte'];
+      } else {
+        echo " cher visiteur, vous pouvez vous connecter ou vous inscrire.";
+      }
+      ?>
+      </h1>
+  </div>
 
-  <header><?php include('header.php'); ?></header>
-  
-  <h1>Bienvenuuuuueee
-    <?php
-    if (isset($_SESSION['pseudonyme_connecte']) && !empty($_SESSION['pseudonyme_connecte'])) {
-      echo " " . $_SESSION['pseudonyme_connecte'];
-    } else {
-      echo " cher visiteur, vous pouvez vous connecter ou vous inscrire.";
-    }
-    ?>
-  </h1>
-
-  <div><?php include('fil_publications.php');?></div>
+  <div> <?php include('fil_publications.php');?></div>
 
 </body>
 
