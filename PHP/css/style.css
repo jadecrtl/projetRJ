@@ -37,11 +37,11 @@ input:focus {
 }
 
 input[type="submit"] {
-    background-color: #f9eac3;
-    color: black;
+    background-color: #3a8741;
+    color: white;
 }
 
 input[value="Retirer"] {
-    background-color: #ecbd90;
-    color: black;
+    background-color:#3a8741;
+    color: white;
 }

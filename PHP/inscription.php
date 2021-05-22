@@ -21,7 +21,7 @@
             <input type="password" name="saisie_mdp2" placeholder="Confirmer votre mot de passe"> <br>
 
             <input type="submit" name="inscription" value="Inscription">
-
+            <p>Retourner à la page d'<a href="accueil.php">accueil</a></p>
         </form>
     </div>
 </body>
