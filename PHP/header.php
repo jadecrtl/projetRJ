@@ -36,7 +36,9 @@ if (!isset($_SESSION)) {
                 echo "<a class=\"amenu\">Demandes en amis: ".$ligne['nb_notif']."</a>";
                 echo "</li>";    
             }
+            
         }
+
         ?>
 
         <?php
