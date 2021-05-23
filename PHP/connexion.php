@@ -23,10 +23,8 @@ session_start();
             </form>
         </div>
         <div>
-            </br>
-            Si vous n'avez pas de compte <a href="inscription.php">Inscription</a>
-            </br>
-            Sinon naviguez en tant que <a href="accueil.php">visiteur</a>
+            <p>Si vous n'avez pas de compte <a href="inscription.php">Inscription</a></p>
+            <p>Sinon naviguez en tant que <a href="accueil.php">visiteur</a></p>
         </div>
     </div>
 </body>

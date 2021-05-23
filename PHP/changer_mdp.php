@@ -1,18 +1,3 @@
-<?php
-if (!isset($_SESSION)) {
-    session_start();
-}
-if (isset($_SESSION['pseudonyme_connecte']) && !empty($_SESSION['pseudonyme_connecte'])) {
-    echo "<h1>Changement du mot de passe pour " . $_SESSION['pseudonyme_connecte'] . "</h1>";
-} else {
-    echo "Erreur : vous n'êtes pas connecté.</br>";
-    echo "Retourner à la page d'<a href=\"accueil.php\">accueil</a>";
-    exit();
-}
-
-
-
-?>
 <html>
 
 <head>
@@ -23,6 +8,18 @@ if (isset($_SESSION['pseudonyme_connecte']) && !empty($_SESSION['pseudonyme_conn
 
 <body>
     <div class="blocPrincipal">
+        <?php
+        if (!isset($_SESSION)) {
+            session_start();
+        }
+        if (isset($_SESSION['pseudonyme_connecte']) && !empty($_SESSION['pseudonyme_connecte'])) {
+            echo "<h1>Changement du mot de passe pour " . $_SESSION['pseudonyme_connecte'] . "</h1>";
+        } else {
+            echo "Erreur : vous n'êtes pas connecté.</br>";
+            echo "Retourner à la page d'<a href=\"accueil.php\">accueil</a>";
+            exit();
+        }
+        ?>
         <form action="changer_mdp_verification.php" method="POST">
 
             <input type="password" name="mdp_nouveau" placeholder="Nouveau mot de passe"></input><br />
