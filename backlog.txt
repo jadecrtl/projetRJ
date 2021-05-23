@@ -62,7 +62,7 @@ Item10 : voir mon compte sur ProjetRJ (mes données)
 	ps_voir_mon_profil.sql										FAIT
 
 Item11 : supprimer mon compte
-	ps_supprimer_mon_profil.sql									A FAIRE
+	ps_supprimer_mon_profil.sql									ABANDONNE
 
 Item12 : se connecter au réseau social
 	on va réutiliser ps_voir_fiche_adresse_mail.sql (Item16)
@@ -98,8 +98,8 @@ Item21 : créer une vue amis
 	vue_amis.sql 												FAIT
 
 Item22 : supprimer une publication
-	ps_supprimer_publication.sql 								A FAIRE
-	ps_censurer_publication.sql									A FAIRE
+	ps_supprimer_publication.sql 								FAIT
+	ps_censurer_publication.sql									FAIT
 	ps_voir_publications_profil									FAIT	
 	Ajouter le bouton supprimer qui va poster l'id_publication.	FAIT
 	Ecrire le traitement de suppression qui appelle la ps_supprimer_publication.sql

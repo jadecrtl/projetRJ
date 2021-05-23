@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : ven. 14 mai 2021 à 18:51
+-- Généré le : Dim 23 mai 2021 à 18:22
 -- Version du serveur :  10.4.17-MariaDB
 -- Version de PHP : 8.0.1
 
@@ -40,6 +40,23 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `ps_ajouter_ami` (IN `p_pseudonyme_d
 
     IF (@l_pouvoir_repondant = "public") THEN
         CALL ps_creer_abonnement(p_pseudonyme_demandeur, p_pseudonyme_repondant);
+    END IF;
+
+END$$
+
+DROP PROCEDURE IF EXISTS `ps_censurer_publication_admin`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ps_censurer_publication_admin` (IN `p_pseudonyme` VARCHAR(40), IN `p_id_publication` INT)  BEGIN 
+    DECLARE l_id_utilisateur INT;
+    DECLARE l_id_publication INT;
+
+    SET @l_id_utilisateur = (SELECT id_utilisateur FROM t_utilisateur WHERE pseudonyme = p_pseudonyme AND (pouvoir = 'admin') );
+
+    SET @l_id_publication = (SELECT id_publication FROM t_publication WHERE id_publication = p_id_publication AND statut_publication = 'publiee');
+
+    IF (@l_id_utilisateur IS NOT NULL AND @l_id_publication IS NOT NULL) THEN    
+    UPDATE t_publication
+    SET statut_publication = 'censuree'
+    WHERE id_publication = @l_id_publication;
     END IF;
 
 END$$
@@ -191,6 +208,58 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `ps_supprimer_demande_ami` (IN `p_ps
     END IF;
 END$$
 
+DROP PROCEDURE IF EXISTS `ps_supprimer_publication`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ps_supprimer_publication` (IN `p_pseudonyme` VARCHAR(40), IN `p_id_publication` INT)  BEGIN  
+
+    DECLARE l_pouvoir ENUM("admin", "prive", "public");
+
+    SET @l_pouvoir = (SELECT pouvoir FROM t_utilisateur WHERE pseudonyme = p_pseudonyme);
+
+    IF (@l_pouvoir = "prive" OR @l_pouvoir = "public") THEN
+        CALL ps_supprimer_publication_prive_public(p_pseudonyme, p_id_publication);
+    END IF;
+
+    IF (@l_pouvoir = "admin") THEN
+        CALL ps_censurer_publication_admin(p_pseudonyme, p_id_publication);
+    END IF;
+
+END$$
+
+DROP PROCEDURE IF EXISTS `ps_supprimer_publications`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ps_supprimer_publications` (IN `p_pseudonyme` VARCHAR(40), IN `p_id_publication` INT)  BEGIN  
+
+    DECLARE l_pouvoir ENUM("admin", "prive", "public");
+
+    SET @l_pouvoir = (SELECT pouvoir FROM t_utilisateur WHERE pseudonyme = p_pseudonyme);
+
+    IF (@l_pouvoir = "prive" OR @l_pouvoir = "public") THEN
+        CALL ps_supprimer_publication_prive_public(p_pseudonyme, p_id_publication);
+    END IF;
+
+    IF (@l_pouvoir = "admin") THEN
+        CALL ps_censurer_publications_admin(p_pseudonyme, p_id_publication);
+    END IF;
+
+END$$
+
+DROP PROCEDURE IF EXISTS `ps_supprimer_publication_prive_public`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ps_supprimer_publication_prive_public` (IN `p_pseudonyme` VARCHAR(40), IN `p_id_publication` INT)  BEGIN 
+    DECLARE l_id_utilisateur INT;
+    DECLARE l_id_publication INT;
+
+    SET @l_id_utilisateur = (SELECT id_utilisateur FROM t_utilisateur WHERE pseudonyme = p_pseudonyme AND ((pouvoir = 'public') OR (pouvoir ='prive')) );
+
+    SET @l_id_publication = (SELECT id_publication FROM t_publication WHERE id_publication = p_id_publication AND statut_publication = 'publiee');
+
+    IF (@l_id_utilisateur IS NOT NULL AND @l_id_publication IS NOT NULL) THEN    
+    UPDATE t_publication
+    SET statut_publication = 'supprimee'
+    WHERE id_utilisateur = @l_id_utilisateur
+    AND id_publication = @l_id_publication;
+    END IF;
+
+END$$
+
 DROP PROCEDURE IF EXISTS `ps_voir_amis`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `ps_voir_amis` (IN `p_pseudonyme` VARCHAR(40))  BEGIN
 
@@ -209,7 +278,6 @@ DROP PROCEDURE IF EXISTS `ps_voir_attentes`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `ps_voir_attentes` (IN `p_pseudonyme_repondant` VARCHAR(40))  BEGIN
 
     DECLARE l_id_utilisateur_repondant INT;
-
     SET @l_id_utilisateur_repondant = (SELECT id_utilisateur FROM t_utilisateur WHERE pseudonyme = p_pseudonyme_repondant);
 
     SELECT r.id_utilisateur_demandeur, u.pseudonyme, r.relation
@@ -218,6 +286,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `ps_voir_attentes` (IN `p_pseudonyme
     WHERE r.id_utilisateur_repondant = @l_id_utilisateur_repondant
     AND r.relation = 'attente'
     ORDER BY u.pseudonyme ASC;
+
 
 END$$
 
@@ -246,6 +315,21 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `ps_voir_fiche_adresse_mail` (IN `p_
 
 END$$
 
+DROP PROCEDURE IF EXISTS `ps_voir_mes_publications`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ps_voir_mes_publications` (IN `p_pseudonyme` VARCHAR(40))  BEGIN
+    DECLARE l_id_utilisateur INT;
+    
+    SET @l_id_utilisateur = (SELECT id_utilisateur FROM t_utilisateur WHERE pseudonyme = p_pseudonyme);
+
+    SELECT u.pseudonyme, p.texte_publication, p.date_creation, p.id_publication
+    FROM t_publication p
+    JOIN t_utilisateur u ON (p.id_utilisateur = u.id_utilisateur)
+    WHERE u.id_utilisateur = @l_id_utilisateur
+    AND statut_publication = 'publiee'
+    ORDER BY date_creation DESC;
+
+END$$
+
 DROP PROCEDURE IF EXISTS `ps_voir_mon_profil`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `ps_voir_mon_profil` (IN `p_pseudonyme` VARCHAR(40))  BEGIN
     DECLARE l_id_utilisateur INT;
@@ -256,6 +340,25 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `ps_voir_mon_profil` (IN `p_pseudony
     FROM t_utilisateur
     WHERE id_utilisateur = @l_id_utilisateur;
 
+END$$
+
+DROP PROCEDURE IF EXISTS `ps_voir_nombre_amis`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ps_voir_nombre_amis` (IN `p_pseudonyme` VARCHAR(40))  BEGIN 
+    SELECT count(*) AS nb_abonnee
+	FROM vue_amis a
+	JOIN t_utilisateur u ON (a.id_utilisateur = u.id_utilisateur)
+	WHERE u.pseudonyme = p_pseudonyme;
+END$$
+
+DROP PROCEDURE IF EXISTS `ps_voir_notifications`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ps_voir_notifications` (IN `p_pseudonyme` VARCHAR(255))  BEGIN
+    
+    SELECT count(*) AS nb_notif
+    FROM t_utilisateur_relation r
+    JOIN t_utilisateur u ON (r.id_utilisateur_repondant = u.id_utilisateur)
+    WHERE u.pseudonyme = p_pseudonyme
+    AND r.relation = 'attente';
+    
 END$$
 
 DROP PROCEDURE IF EXISTS `ps_voir_nouveaux_amis`$$
@@ -314,9 +417,10 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `ps_voir_publications_admin` (IN `p_
     
     SET @l_id_utilisateur = (SELECT id_utilisateur FROM t_utilisateur WHERE pseudonyme = p_pseudonyme AND pouvoir = 'admin');
 
-    SELECT u.pseudonyme, p.texte_publication, p.date_creation
+    SELECT u.pseudonyme, p.texte_publication, p.date_creation, p.id_publication
     FROM t_publication p
     JOIN t_utilisateur u ON (p.id_utilisateur = u.id_utilisateur)
+    WHERE statut_publication = 'publiee'
     ORDER BY p.date_creation DESC;
 
 END$$
@@ -337,17 +441,19 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `ps_voir_publications_prive_public` 
 END$$
 
 DROP PROCEDURE IF EXISTS `ps_voir_publications_profil`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `ps_voir_publications_profil` (IN `p_pseudonyme` VARCHAR(40))  BEGIN
-    DECLARE l_id_utilisateur INT;
-    
-    SET @l_id_utilisateur = (SELECT id_utilisateur FROM t_utilisateur WHERE pseudonyme = p_pseudonyme);
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ps_voir_publications_profil` (IN `p_pseudonyme` VARCHAR(40))  BEGIN  
 
-    SELECT u.pseudonyme, p.texte_publication, p.date_creation
-    FROM t_publication p
-    JOIN t_utilisateur u ON (p.id_utilisateur = u.id_utilisateur)
-    WHERE u.id_utilisateur = @l_id_utilisateur
-    AND statut_publication = 'publiee'
-    ORDER BY date_creation DESC;
+    DECLARE l_pouvoir ENUM("admin", "prive", "public");
+
+    SET @l_pouvoir = (SELECT pouvoir FROM t_utilisateur WHERE pseudonyme = p_pseudonyme);
+
+    IF (@l_pouvoir = "prive" OR @l_pouvoir = "public") THEN
+        CALL ps_voir_mes_publications(p_pseudonyme);
+    END IF;
+    
+    IF (@l_pouvoir = "admin") THEN
+        CALL ps_voir_publications_admin(p_pseudonyme);
+    END IF;
 
 END$$
 
@@ -400,14 +506,14 @@ CREATE TABLE `t_publication` (
 --
 
 INSERT INTO `t_publication` (`id_publication`, `id_utilisateur`, `date_creation`, `texte_publication`, `statut_publication`) VALUES
-(2, 10, '2021-04-22 14:01:53', 'Je suis influe1 et bienvenu sur mon premier post!', 'publiee'),
-(3, 10, '2021-04-22 14:01:53', 'En visualisant mon mur de publications je vous présenterai au fur et à mesure des références modes et makeup.', 'publiee'),
-(4, 11, '2021-04-22 14:01:53', 'Hey je suis influe2 je suis nouveau sur ce réseau.', 'publiee'),
-(5, 13, '2021-04-22 14:01:53', 'J\'aime beaucoup le maquillage!', 'publiee'),
-(6, 14, '2021-04-22 14:01:53', 'Une boutique à me conseiller pour un style rock sur Paris?', 'publiee'),
-(7, 14, '2021-04-22 14:01:53', 'J\'ai trouvé une boutique super sympa elle s\'appelle & other stories je vous la conseille!', 'publiee'),
-(8, 14, '2021-04-22 14:01:53', 'Vivement que le confinement se finisse on en peut plus!', 'publiee'),
-(9, 15, '2021-05-14 15:19:04', 'Ceci est ma première publication.\r\nBienvenue!', 'publiee');
+(14, 10, '2021-05-18 10:47:01', 'Je suis influe1 et bienvenu sur mon premier post!', 'publiee'),
+(15, 10, '2021-05-18 10:47:01', 'En visualisant mon mur de publications je vous présenterai au fur et à mesure des références modes et makeup.', 'publiee'),
+(16, 11, '2021-05-18 10:47:01', 'Hey je suis influe2 je suis nouveau sur ce réseau.', 'publiee'),
+(17, 13, '2021-05-18 10:47:01', 'J\'aime beaucoup le maquillage!', 'publiee'),
+(18, 14, '2021-05-18 10:47:01', 'Une boutique à me conseiller pour un style rock sur Paris?', 'publiee'),
+(19, 14, '2021-05-18 10:47:01', 'J\'ai trouvé une boutique super sympa elle s\'appelle & other stories je vous la conseille!', 'publiee'),
+(20, 14, '2021-05-18 10:47:01', 'Vivement que le confinement se finisse on en peut plus!', 'publiee'),
+(21, 15, '2021-05-23 16:04:01', 'Nouvelle publication pour Jade3.', 'censuree');
 
 -- --------------------------------------------------------
 
@@ -430,16 +536,17 @@ CREATE TABLE `t_utilisateur` (
 
 INSERT INTO `t_utilisateur` (`id_utilisateur`, `pseudonyme`, `adresse_mail`, `mot_de_passe`, `pouvoir`) VALUES
 (8, 'admin1', 'admin1@gmail.com', '$2y$10$d9JEHe2euz6eym7P1EPc/.JRHPkCX0hYEcJ.UbMMh4i1Tj58n6QTe', 'admin'),
-(9, 'admin2', 'admin2@gmail.com', '$2y$10$vMNZVmC1NBQ1B3dpC25ODO8cCyv4TogplqfdkyUs/WABa6VYi4YWu', 'admin'),
+(9, 'admin2', 'admin2@gmail.com', '$2y$10$jxauFqeQ7x.0GI/11mlWue1XB6PikNFNxqJ1pwH611oMauqjKcSDy', 'admin'),
 (10, 'influe1', 'influe1@gmail.com', '$2y$10$OxdJrXdYdxnCFwDnkbYQl.n9prXVsonfvXn/hfsJWrsxvfgcQGLji', 'public'),
 (11, 'influe2', 'influe2@gmail.com', '$2y$10$vMNZVmC1NBQ1B3dpC25ODO8cCyv4TogplqfdkyUs/WABa6VYi4YWu', 'public'),
 (12, 'influe3', 'influe3@gmail.com', '$2y$10$vMNZVmC1NBQ1B3dpC25ODO8cCyv4TogplqfdkyUs/WABa6VYi4YWu', 'public'),
 (13, 'jade1', 'jade1@gmail.com', '$2y$10$wNQynQZ/cF9XbEr0oHhvR.XNjs/wMr7kpr8P5BboOMenIwU.29.XG', 'prive'),
-(14, 'jade2', 'jade2@gmail.com', '$2y$10$vMNZVmC1NBQ1B3dpC25ODO8cCyv4TogplqfdkyUs/WABa6VYi4YWu', 'prive'),
+(14, 'jade2', 'jade2@gmail.com', '$2y$10$/3NanE0KL7eQ8wOXKhncreBLTrFMmCDN1nWp5ap0.S3q8h3uiupqq', 'prive'),
 (15, 'jade3', 'jade3@gmail.com', '$2y$10$XAP35UhSH.2ZwNOYFcEiwOXAYCZpfKhOYIsf3r86qYGTi4L.pKUHi', 'prive'),
 (22, 'rayana1', 'rayana1@gmail.com', '$2y$10$Zgdjn9dBC4p3M4Q9YFplduOv3gYYtZymkgV9tgtkrZrssRCd3Jkau', 'prive'),
 (23, 'rayana2', 'rayana2@gmail.com', '$2y$10$B1JpEy5TGIMBbxmR5MiR2eRIXrlSjQeqlzhuhJjUx3vvOPxJ8.q0G', 'prive'),
-(25, 'rayana3', 'rayana3@gmail.com', '$2y$10$RkmiCEh.WwLJExgS.ObgHeC4nHwrFNr4DtW36PRfZ1rmyhejRkqhe', 'prive');
+(25, 'rayana3', 'rayana3@gmail.com', '$2y$10$RkmiCEh.WwLJExgS.ObgHeC4nHwrFNr4DtW36PRfZ1rmyhejRkqhe', 'prive'),
+(26, 'jade4', 'jade4@gmail.com', '$2y$10$JKzuLbREZ1Oh5ZL8S8BEoO7KQ36vbODuzcL4gCXnNrKFxtIL2Xt7i', 'prive');
 
 -- --------------------------------------------------------
 
@@ -468,8 +575,10 @@ INSERT INTO `t_utilisateur_relation` (`id_utilisateur_demandeur`, `id_utilisateu
 (13, 25, 'attente'),
 (14, 10, 'ami'),
 (14, 11, 'ami'),
+(14, 25, 'attente'),
 (15, 10, 'ami'),
 (15, 13, 'attente'),
+(15, 14, 'ami'),
 (15, 25, 'ami');
 
 -- --------------------------------------------------------
@@ -544,13 +653,13 @@ ALTER TABLE `t_commentaire`
 -- AUTO_INCREMENT pour la table `t_publication`
 --
 ALTER TABLE `t_publication`
-  MODIFY `id_publication` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_publication` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT pour la table `t_utilisateur`
 --
 ALTER TABLE `t_utilisateur`
-  MODIFY `id_utilisateur` int(11) NOT NULL AUTO_INCREMENT COMMENT 'identifiant unique de l''utilisateur', AUTO_INCREMENT=26;
+  MODIFY `id_utilisateur` int(11) NOT NULL AUTO_INCREMENT COMMENT 'identifiant unique de l''utilisateur', AUTO_INCREMENT=27;
 
 --
 -- Contraintes pour les tables déchargées

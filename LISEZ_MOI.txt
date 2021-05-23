@@ -1,0 +1,23 @@
+Bienvenue sur notre projet.
+Pour déployer notre site veuillez suivre les instructions suivantes svp:
+
+Ici nous avons installé XAMPP
+
+1- Créer le répertoire mode-up dans votre serveur web
+
+cd /opt/lampp/htdocs
+sudo mkdir mode-up
+
+2- Décompresser l'archive ProjetRJ_mode-up_final.zip dans un répertoire de votre choix
+
+3- Aller dans ce répertoire puis dans le sous répertoire PHP/
+
+4- Lancer le shell de déploiement
+
+./deploy_server_projetRJ_XAMPP.sh
+
+5- Aller dans PHPMyAdmin et importer le script ProjetRJ_version_finale.sql
+
+Si vous avez changé votre mot de passe root alors mettez le dans bdd.php aux deux endroits où les doubles guillemets sont vides.
+
+6- Ouvrez votre navigateur à l'adresse http://localhost/mode-up
