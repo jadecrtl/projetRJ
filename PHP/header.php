@@ -5,11 +5,8 @@ if (!isset($_SESSION)) {
 ?>
 
 <nav>
-
-
     <ul>
         <li>
-
             <a href="accueil.php"><img src="img/logo.png" alt="image"></a>
         </li>
         <?php
@@ -74,5 +71,4 @@ if (!isset($_SESSION)) {
         ?>
 
     </ul>
-
 </nav>

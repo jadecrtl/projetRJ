@@ -91,7 +91,7 @@ if (!isset($_SESSION)) {
             echo "<h2>" . $affiche_publications['pseudonyme'] . " le " . $affiche_publications['date_creation'] . "</h2>";
             echo nl2br($affiche_publications['texte_publication']);
             echo "</article>";
-            echo "<form action=\"supprimer_publication.php\" method=\"POST\">";
+            echo "<form action=\"supprimer_publication.php\" method=\"POST\" class=\"form formsup\">";
             echo "<input type=\"submit\" name=\"supprimer\" value=\"Supprimer\">";
             echo "<input type=\"hidden\" name=\"id_de_publication\" value=".$affiche_publications['id_publication'].">";
             echo "</form>";

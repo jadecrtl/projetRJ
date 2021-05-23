@@ -15,7 +15,7 @@
 			exit();
 		}
 		$ligne = mysqli_fetch_assoc($resultat);
-		echo "<table><caption>Resultat de la recherche</caption>";
+		echo "<table class=\"\"><caption>Resultat de la recherche</caption>";
 		while($ligne) {
 			echo "<tr>";
 			echo "<td>".$ligne['pseudonyme']."</td>";

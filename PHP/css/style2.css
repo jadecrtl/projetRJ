@@ -1,19 +1,6 @@
-.blocPrincipal {
-    display: block;
-    text-align: center;
-    margin-top: 10%;
-    margin-bottom: 10%;
-    margin-left: auto;
-    margin-right: auto;
-    width: 70%;
-    background-color: white;
-    border-radius: 50px;
-    padding: 10px;
-}
-
 body {
-    min-width: 948px;
-    text-align: center;
+    margin: 0px;
+    padding: 0px;
 }
 
 #logo {
@@ -26,10 +13,8 @@ img {
 }
 
 input {
-    padding: 5px;
+    padding: 10px;
     border-radius: 10px;
-    margin-top: 5px;
-    margin-bottom: 5px;
 }
 
 input:focus {
@@ -37,33 +22,90 @@ input:focus {
 }
 
 input[type="submit"] {
-    background-color:#f9eac3;
-    color: black;
+    background-color: #88c2a3;
+    color: white;
 }
 
 input[value="Retirer"] {
-    background-color: #ecbd90;
-    color: black;
+    background-color: #3a8741;
+    color: white;
 }
 
 ul {
-    padding: 0;
     margin: 0;
 }
 
 li {
     display: inline;
     float: left;
-    padding-left: 15;
-    padding-right: 10;
+    padding-left: 35px;
+    padding-right: 10px;
 }
 
 a {
     text-decoration: none;
     display: block;
-    background-color: white;
 }
 
 .amenu {
+    padding-top: 10px;
+    border-left: 6px solid #a2debe;
+    color: black;
+}
+
+h1 {
+    padding: 10px;
+}
+
+.container {
+    /* On ajoute une marge sur les cotés de l'écran */
+    padding-right: 15px;
+    padding-left: 15px;
+    /* Et on centre */
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+article {
+    margin: 20;
+    border-left: 6px solid #a2debe;
+    border-right: 6px solid #a2debe;
+    background-color: rgb(243, 243, 243);
+    padding: 20px;
+}
+
+nav {
+    background-color: #a2debe;
+    height: 55px;
+    margin-top: 0px;
     padding-top: 20px;
+}
+
+header {
+    margin: 0;
+    padding-right: 0px;
+    width: 100%;
+}
+
+.form {
+    float: right;
+    margin-right: 90px;
+}
+
+.formsup {
+    margin-top: -100px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.recherche {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.resRecherche {
+    text-align: center;
+    margin-top: 80px;
 }
