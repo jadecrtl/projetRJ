@@ -581,28 +581,19 @@ INSERT INTO `t_utilisateur_relation` (`id_utilisateur_demandeur`, `id_utilisateu
 (15, 14, 'ami'),
 (15, 25, 'ami');
 
--- --------------------------------------------------------
+DROP VIEW IF EXISTS vue_amis;
 
---
--- Doublure de structure pour la vue `vue_amis`
--- (Voir ci-dessous la vue réelle)
---
-DROP VIEW IF EXISTS `vue_amis`;
-CREATE TABLE `vue_amis` (
-`id_utilisateur` int(11)
-,`id_utilisateur_ami` int(11)
-,`pseudonyme` varchar(40)
-);
 
--- --------------------------------------------------------
-
---
--- Structure de la vue `vue_amis`
---
-DROP TABLE IF EXISTS `vue_amis`;
-
-DROP VIEW IF EXISTS `vue_amis`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vue_amis`  AS SELECT `r`.`id_utilisateur_demandeur` AS `id_utilisateur`, `r`.`id_utilisateur_repondant` AS `id_utilisateur_ami`, `u`.`pseudonyme` AS `pseudonyme` FROM (`t_utilisateur_relation` `r` join `t_utilisateur` `u`) WHERE `r`.`relation` = 'ami' AND `r`.`id_utilisateur_repondant` = `u`.`id_utilisateur` ;
+CREATE VIEW vue_amis AS 
+    SELECT r.id_utilisateur_demandeur id_utilisateur, r.id_utilisateur_repondant id_utilisateur_ami, u.pseudonyme
+    FROM t_utilisateur_relation r, t_utilisateur u
+    WHERE r.relation = 'ami'
+    AND r.id_utilisateur_repondant = u.id_utilisateur
+    UNION
+    SELECT r.id_utilisateur_repondant id_utilisateur, r.id_utilisateur_demandeur id_utilisateur_ami, u.pseudonyme
+    FROM t_utilisateur_relation r, t_utilisateur u
+    WHERE r.relation = 'ami'
+    AND r.id_utilisateur_demandeur = u.id_utilisateur;
 
 --
 -- Index pour les tables déchargées
